@@ -1,31 +1,39 @@
-# UAE Schools — Kfir International (Dubai)
+# Kfir — Projects in Education (International)
 
-> **Status:** Active — deployed as part of kfir-site
-> **Live URL:** https://kfir-site-f3ab5.web.app/global.html
-> **Code location:** `/Users/levi/Desktop/kfir-site/global.html`
+> **Status:** Pre-launch — traveling to Dubai & China summer 2026
+> **Domain:** TBD (needs custom domain)
+> **Firebase:** kfir-site-f3ab5 (global.html)
+> **Live:** https://kfir-site-f3ab5.web.app/global.html
 
-## Overview
+## What This Is
 
-This is NOT a separate project — it's the international (English) version of Kfir,
-living inside the kfir-site repo as `global.html`.
+**NOT** the same as "כפיר צהרונים" (kfir-p.co.il).
 
-The page targets schools in Dubai/UAE and China, offering:
-- Sports enrichment (football, basketball, tennis)
-- Tech & AI programs
+This is Amitai's international expansion venture — bringing enrichment programs
+(after-school, camps, sports, tech, dance) to schools in Dubai and China.
+
+The site's goal: project that Kfir already operates at this level internationally,
+even while still in planning/travel phase.
+
+## Programs
+
+- Sports (football, basketball, tennis)
+- Tech & AI
 - Dance (ballet, zumba, musical theater)
 - Creative English
-- Science & Technology (SciTech)
-- After-school programs (צהרונים)
-- Day camps (קייטנות)
+- SciTech
+- After-school programs
+- Day camps
 
-## Features
+## Relationship to kfir-site
 
-- Multi-language support (English, Hebrew, Arabic, Chinese)
-- Age-based image carousel (3 images per program card: kindergarten, grades 1-2, grades 3-6)
-- Firebase hosted under kfir-site-f3ab5
+- `kfir-site` = כפיר צהרונים (Israel, active business, real payments)
+- `uae-schools` = כפיר פרויקטים בחינוך (international, aspirational)
+- Code currently lives in kfir-site/global.html but is a SEPARATE business
 
 ## Next Steps
 
-- [ ] Connect custom domain for the international site
-- [ ] Final image quality review (previous session was cut off mid-edit)
-- [ ] Add camps (קייטנות) card — currently 6 programs, plan was 7
+- [ ] Connect custom domain (separate from kfir-p.co.il)
+- [ ] Final image quality review (21 images × age groups)
+- [ ] Add camps card (7th program)
+- [ ] Potentially move code to its own repo/hosting
