@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#6366f1">
+<title>🔐 אימות זהות | כפיר</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --indigo:#6366f1;--indigo-dark:#4338ca;--indigo-light:#e0e7ff;
+  --cream:#eef2ff;--cream-deep:#f5f3ff;
+  --ink:#1e1b4b;--gray:#64748b;
+  --shadow:0 4px 20px rgba(99,102,241,.10);
+  --shadow-lg:0 10px 40px rgba(99,102,241,.18);
+  --pink:#e94c5c;--green:#16a34a;
+}
+body{font-family:'Heebo',sans-serif;background:linear-gradient(135deg,#f5f3ff 0%,#eef2ff 100%);color:var(--ink);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.card{background:white;border-radius:24px;padding:32px 28px;max-width:420px;width:100%;box-shadow:var(--shadow-lg)}
+.lock-icon{font-size:54px;text-align:center;margin-bottom:14px}
+.title{font-size:24px;font-weight:800;color:var(--ink);text-align:center;margin-bottom:6px}
+.subtitle{font-size:14px;color:var(--gray);text-align:center;line-height:1.6;margin-bottom:26px}
+.user-display{background:linear-gradient(135deg,var(--indigo-light),var(--cream-deep));border-radius:14px;padding:14px 18px;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.user-emoji{font-size:32px;width:48px;height:48px;border-radius:50%;background:white;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(99,102,241,.15)}
+.user-info{flex:1}
+.user-name{font-size:15px;font-weight:700;color:var(--indigo-dark)}
+.user-role{font-size:12px;color:var(--gray)}
+.step{display:none}
+.step.active{display:block}
+.label{display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:8px}
+.input{width:100%;padding:14px 16px;font-family:inherit;font-size:18px;border:2px solid var(--indigo-light);border-radius:14px;background:white;color:var(--ink);text-align:center;letter-spacing:.05em;direction:ltr}
+.input:focus{outline:none;border-color:var(--indigo);box-shadow:0 0 0 4px rgba(99,102,241,.1)}
+.input-otp{font-size:28px;letter-spacing:.4em;font-weight:700}
+.help{font-size:11px;color:var(--gray);margin-top:6px;text-align:center;line-height:1.5}
+.btn{width:100%;padding:15px;border:none;border-radius:14px;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;margin-top:16px;transition:transform .15s;background:linear-gradient(135deg,var(--indigo),var(--indigo-dark));color:white;box-shadow:0 6px 18px rgba(99,102,241,.35)}
+.btn:active{transform:scale(.97)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn-secondary{background:none;color:var(--gray);box-shadow:none;font-weight:500;font-size:13px}
+.error{background:#fee2e2;color:#991b1b;padding:10px 14px;border-radius:10px;font-size:13px;margin-top:12px;display:none}
+.error.show{display:block}
+.success{background:#dcfce7;color:#166534;padding:14px;border-radius:12px;font-size:14px;margin-top:12px;display:none;text-align:center}
+.success.show{display:block}
+.security-note{background:var(--cream-deep);border-right:3px solid var(--indigo);padding:12px 14px;border-radius:10px;font-size:12px;color:var(--gray);line-height:1.6;margin-top:20px}
+#recaptcha-container{position:absolute;left:-9999px;visibility:hidden;pointer-events:none}
+.timer{text-align:center;font-size:13px;color:var(--gray);margin-top:10px}
+.timer strong{color:var(--indigo-dark)}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="lock-icon">🔐</div>
+  <div class="title">אימות זהות</div>
+  <div class="subtitle">לכניסה למאגר המידע - נדרש אימות SMS</div>
+
+  <div class="user-display" id="user-display">
+    <div class="user-emoji" id="user-emoji">👤</div>
+    <div class="user-info">
+      <div class="user-name" id="user-name">טוען...</div>
+      <div class="user-role" id="user-role"></div>
+    </div>
+  </div>
+
+  <!-- שלב 1: הזנת טלפון -->
+  <div class="step active" id="step-phone">
+    <label class="label">📱 מספר הנייד שלך</label>
+    <input class="input" type="tel" id="phone" placeholder="050-0000000" inputmode="tel" autocomplete="tel" maxlength="13">
+    <div class="help">נשלח אליך קוד אימות ב-SMS<br>חייב להיות הטלפון של <strong id="user-name-2"></strong></div>
+    <div class="error" id="phone-error"></div>
+    <button class="btn" onclick="sendCode()">שלח קוד SMS</button>
+    <button class="btn btn-secondary" onclick="history.back()">← חזרה</button>
+    <div id="recaptcha-container"></div>
+  </div>
+
+  <!-- שלב 2: הזנת קוד -->
+  <div class="step" id="step-code">
+    <label class="label">🔑 הקוד שקיבלת ב-SMS</label>
+    <input class="input input-otp" type="tel" id="code" placeholder="------" inputmode="numeric" maxlength="6" autocomplete="one-time-code">
+    <div class="help">נשלח לטלפון <span id="phone-display"></span><br>הקוד תקף ל-5 דקות</div>
+    <div class="error" id="code-error"></div>
+    <button class="btn" onclick="verifyCode()">אשר וכנס למאגר</button>
+    <button class="btn btn-secondary" onclick="resetFlow()">⤴️ שינוי מספר טלפון</button>
+    <div class="timer" id="timer"></div>
+  </div>
+
+  <!-- שלב 3: הצלחה -->
+  <div class="step" id="step-success">
+    <div class="success show">
+      ✅ הזדהית בהצלחה!<br>
+      <small>מעבירה אותך למאגר...</small>
+    </div>
+  </div>
+
+  <div class="security-note">
+    🛡️ <strong>אבטחה:</strong> זיהוי SMS באמצעות Google Firebase Auth.
+    הטלפון שלך לא נשמר אצלנו - רק אצל גוגל.
+  </div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCXs7a644_tl_Mu-A-Jnq5mXBXVp-OILKY",
+  authDomain: "kfir-site-f3ab5.firebaseapp.com",
+  projectId: "kfir-site-f3ab5",
+  storageBucket: "kfir-site-f3ab5.firebasestorage.app",
+  messagingSenderId: "116106158672",
+  appId: "1:116106158672:web:3db78243185fbdc81ce755"
+};
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+auth.languageCode = 'he';
+window._auth = { auth, RecaptchaVerifier, signInWithPhoneNumber };
+</script>
+
+<script>
+// 📋 רשימת המורשים - טלפונים + תפקידים (מאומת מאמיתי)
+const AUTHORIZED = {
+  'batel': { name: 'בתאל קגן', emoji: '🌸', role: 'מנהלת צהרוני גני ילדים · ראש העין', phone: '0545422310', area: 'ראש העין', userRole: 'manager' },
+  'regina': { name: 'ד"ר רגינה חסון', emoji: '🌷', role: 'מנהלת פדגוגית צהרונים · באר טוביה', phone: '0542280976', area: 'באר טוביה', userRole: 'manager' },
+  'yamit': { name: 'ימית יוסף', emoji: '🌺', role: 'מנהלת גני ילדים · באר טוביה', phone: '0508988992', area: 'באר טוביה', userRole: 'manager' },
+  'miriam': { name: 'מרים כוכב', emoji: '⭐', role: 'מנהלת משרד', phone: '0525080664', area: 'משרד', userRole: 'office' },
+  'shlomit': { name: 'שלומית צורדקר', emoji: '💼', role: 'צוות משרד', phone: '0584294159', area: 'משרד', userRole: 'office' },
+  'amitai': { name: 'אמיתי לוי', emoji: '🦁', role: 'מנכ"ל', phone: '0523898467', area: 'הכל', userRole: 'ceo' }
+};
+
+// קבלת זהות מה-URL
+const userId = new URLSearchParams(location.search).get('u');
+const user = AUTHORIZED[userId];
+
+if (!user) {
+  location.href = '/lab/';
+} else {
+  document.getElementById('user-emoji').textContent = user.emoji;
+  document.getElementById('user-name').textContent = user.name;
+  document.getElementById('user-role').textContent = user.role;
+  document.getElementById('user-name-2').textContent = user.name;
+}
+
+let confirmationResult = null;
+let recaptchaVerifier = null;
+
+function showError(stepId, msg) {
+  const el = document.getElementById(stepId + '-error');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 5000);
+}
+
+async function sendCode() {
+  let phone = document.getElementById('phone').value.replace(/[^\d]/g, '');
+
+  // המרה ל-international format
+  if (phone.startsWith('0')) phone = '+972' + phone.substring(1);
+  else if (phone.startsWith('972')) phone = '+' + phone;
+  else if (!phone.startsWith('+')) phone = '+972' + phone;
+
+  // ולידציה: רק טלפון של המורשה הזה!
+  const expectedPhone = '+972' + user.phone.substring(1);
+  if (phone !== expectedPhone) {
+    showError('phone', '❌ מספר לא תואם. רק ' + user.name + ' מורשה כאן.');
+    return;
+  }
+
+  // המתנה ל-Firebase
+  let attempts = 0;
+  while (!window._auth && attempts < 30) {
+    await new Promise(r => setTimeout(r, 100));
+    attempts++;
+  }
+  if (!window._auth) return showError('phone', 'Firebase לא נטען');
+
+  const { auth, RecaptchaVerifier, signInWithPhoneNumber } = window._auth;
+
+  try {
+    if (!recaptchaVerifier) {
+      // 🥷 reCAPTCHA בלתי נראה - רץ ברקע, אין חוויה מעצבנת
+      recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
+        size: 'invisible',
+        callback: () => { /* אומת אוטומטית */ },
+        'expired-callback': () => { recaptchaVerifier = null; }
+      });
+      await recaptchaVerifier.render();
+    }
+
+    confirmationResult = await signInWithPhoneNumber(auth, phone, recaptchaVerifier);
+
+    document.getElementById('phone-display').textContent = phone;
+    document.getElementById('step-phone').classList.remove('active');
+    document.getElementById('step-code').classList.add('active');
+    startTimer();
+    setTimeout(() => document.getElementById('code').focus(), 200);
+  } catch (err) {
+    console.error('Auth error code:', err.code, '|', err.message);
+    if (err.code === 'auth/operation-not-allowed') {
+      showError('phone', '❌ Phone Auth לא מופעל ב-Firebase Console (Authentication > Sign-in method > Phone)');
+    } else if (err.code === 'auth/billing-not-enabled') {
+      showError('phone', '❌ צריך להפעיל Blaze plan ב-Firebase');
+    } else if (err.code === 'auth/unauthorized-domain') {
+      showError('phone', '❌ הדומיין לא מורשה. צריך להוסיף kfir-p.co.il ל-Authorized Domains');
+    } else if (err.code === 'auth/captcha-check-failed') {
+      showError('phone', '❌ reCAPTCHA נכשל - רענני ונסי שוב');
+    } else if (err.code === 'auth/quota-exceeded') {
+      showError('phone', '❌ חרגנו ממכסת SMS היומית');
+    } else if (err.code === 'auth/invalid-phone-number') {
+      showError('phone', '❌ מספר טלפון לא תקין');
+    } else if (err.code === 'auth/too-many-requests') {
+      showError('phone', '❌ יותר מדי ניסיונות. המתיני 30 דק ונסי שוב');
+    } else {
+      // הצגת קוד שגיאה מדויק - חשוב לאבחון
+      showError('phone', `❌ ${err.code || 'שגיאה'}: ${err.message || 'אנא נסי שוב'}`);
+    }
+  }
+}
+window.sendCode = sendCode;
+
+async function verifyCode() {
+  const code = document.getElementById('code').value.replace(/\D/g, '');
+  if (code.length !== 6) return showError('code', 'הקוד 6 ספרות');
+  if (!confirmationResult) return showError('code', 'אין סשן פעיל - שלחי שוב SMS');
+
+  try {
+    const result = await confirmationResult.confirm(code);
+    // הצליח! שומרים זהות
+    localStorage.setItem('kfir_user', JSON.stringify({
+      name: user.name,
+      area: user.area,
+      role: user.userRole,
+      phone: user.phone,
+      uid: result.user.uid,
+      loggedAt: new Date().toISOString()
+    }));
+    if (user.userRole === 'office' || user.userRole === 'ceo') {
+      localStorage.setItem('office_key', 'kfir2026');
+    }
+
+    document.getElementById('step-code').classList.remove('active');
+    document.getElementById('step-success').classList.add('active');
+    setTimeout(() => {
+      location.href = (user.userRole === 'office' || user.userRole === 'ceo') ? '/lab/office/' : '/lab/batel/';
+    }, 1500);
+  } catch (err) {
+    console.error(err);
+    showError('code', '❌ קוד שגוי. נסי שוב.');
+  }
+}
+window.verifyCode = verifyCode;
+
+function resetFlow() {
+  confirmationResult = null;
+  document.getElementById('step-code').classList.remove('active');
+  document.getElementById('step-phone').classList.add('active');
+  document.getElementById('code').value = '';
+}
+window.resetFlow = resetFlow;
+
+let timerSec = 300;
+function startTimer() {
+  timerSec = 300;
+  const el = document.getElementById('timer');
+  const update = () => {
+    if (timerSec <= 0) { el.innerHTML = '<strong>פג תוקף</strong> - שלחי שוב'; return; }
+    const m = Math.floor(timerSec/60), s = timerSec%60;
+    el.innerHTML = `הקוד תקף עוד <strong>${m}:${String(s).padStart(2,'0')}</strong>`;
+    timerSec--;
+    setTimeout(update, 1000);
+  };
+  update();
+}
+
+// פורמט אוטומטי לטלפון
+document.getElementById('phone').oninput = e => {
+  let v = e.target.value.replace(/\D/g, '');
+  if (v.length > 3) v = v.substring(0,3) + '-' + v.substring(3);
+  if (v.length > 7) v = v.substring(0,7) + v.substring(7,11);
+  e.target.value = v;
+};
+</script>
+</body>
+</html>

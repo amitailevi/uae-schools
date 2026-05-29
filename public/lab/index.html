@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#c4708f">
+<title>כניסת צוות | כפיר</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --rose:#c4708f;--rose-dark:#a04e6b;--rose-light:#fde6ee;
+  --indigo:#6366f1;--indigo-dark:#4338ca;--indigo-light:#e0e7ff;
+  --cream:#fef3e8;--cream-deep:#fdf2f8;--gold:#d4a574;
+  --ink:#3d2433;--gray:#64748b;
+  --shadow:0 4px 20px rgba(0,0,0,.08);
+  --shadow-lg:0 10px 40px rgba(0,0,0,.12);
+}
+body{font-family:'Heebo',sans-serif;background:linear-gradient(135deg,#fdf2f8 0%,#fef3e8 50%,#e0e7ff 100%);color:var(--ink);min-height:100vh;padding:24px}
+.container{max-width:540px;margin:0 auto}
+.header{text-align:center;padding:24px 0 18px}
+.lab-badge{display:inline-block;background:rgba(99,102,241,.15);color:var(--indigo-dark);padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;margin-bottom:14px}
+.logo{font-size:48px;margin-bottom:8px}
+.title{font-size:28px;font-weight:800;color:var(--ink);margin-bottom:6px}
+.subtitle{font-size:14px;color:var(--gray);line-height:1.6}
+
+/* 2 הCTAs הגדולים */
+.main-ctas{display:grid;gap:14px;margin-bottom:28px}
+
+.cta-card{border-radius:22px;padding:24px;text-decoration:none;display:flex;align-items:center;gap:16px;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s;color:white;cursor:pointer;border:none;font-family:inherit;text-align:right;width:100%}
+.cta-card:active{transform:scale(.97)}
+.cta-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+
+.cta-form{background:linear-gradient(135deg,var(--rose),var(--rose-dark));box-shadow:0 8px 24px rgba(196,112,143,.35)}
+.cta-archive{background:linear-gradient(135deg,var(--indigo),var(--indigo-dark));box-shadow:0 8px 24px rgba(99,102,241,.35)}
+
+.cta-icon{font-size:48px;width:64px;height:64px;border-radius:18px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;backdrop-filter:blur(10px)}
+.cta-text{flex:1;min-width:0}
+.cta-label{font-size:11px;font-weight:600;opacity:.85;letter-spacing:.5px;margin-bottom:4px;text-transform:uppercase}
+.cta-title{font-size:22px;font-weight:800;margin-bottom:4px;line-height:1.1}
+.cta-sub{font-size:12px;opacity:.92;line-height:1.5}
+.cta-arrow{font-size:24px;opacity:.7}
+
+.section-label{font-size:12px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;margin:20px 0 10px;padding-right:4px;text-align:center}
+
+.user-grid{display:grid;gap:8px}
+.user-card{background:white;border-radius:14px;padding:14px;display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;box-shadow:0 2px 10px rgba(0,0,0,.04);border:2px solid transparent;transition:all .2s;cursor:pointer}
+.user-card:hover{border-color:var(--indigo);transform:translateX(-3px)}
+.user-card:active{transform:scale(.98)}
+.user-emoji{font-size:24px;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--indigo-light),var(--rose-light));display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.user-info{flex:1;min-width:0}
+.user-name{font-size:14px;font-weight:700;color:var(--ink)}
+.user-role{font-size:11px;color:var(--gray);line-height:1.4}
+.user-arrow{font-size:16px;color:var(--indigo);opacity:.6}
+.ceo-card{background:linear-gradient(135deg,var(--ink),#2d1a26);color:white;border:none}
+.ceo-card .user-emoji{background:rgba(255,255,255,.15)}
+.ceo-card .user-name{color:white}
+.ceo-card .user-role{color:rgba(255,255,255,.7)}
+.ceo-card .user-arrow{color:var(--gold);opacity:1}
+
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(99,102,241,.3),transparent);margin:24px 0}
+.footer-info{text-align:center;margin-top:24px;font-size:11px;color:var(--gray);line-height:1.6}
+.footer-info a{color:var(--indigo);text-decoration:none;font-weight:500}
+.continue-banner{background:white;border-radius:14px;padding:12px 16px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:center;box-shadow:var(--shadow);border:2px solid var(--indigo-light)}
+.continue-btn{background:linear-gradient(135deg,var(--indigo),var(--indigo-dark));color:white;border:none;padding:8px 14px;border-radius:10px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="container">
+  <div id="continue-banner"></div>
+
+  <div class="header">
+    <span class="lab-badge">🧪 LAB · גרסת ניסוי</span>
+    <div class="logo">🦁</div>
+    <div class="title">מערכת תיעוד פנימית</div>
+    <div class="subtitle">בחרי פעולה</div>
+  </div>
+
+  <!-- 2 הקישורים המרכזיים -->
+  <div class="main-ctas">
+    <a href="batel/new-report.html" class="cta-card cta-form">
+      <div class="cta-icon">✍️</div>
+      <div class="cta-text">
+        <div class="cta-label">פעולה · יצירה</div>
+        <div class="cta-title">📝 דיווח חדש</div>
+        <div class="cta-sub">לתעד אירוע / צפייה · 6 שלבים מהירים</div>
+      </div>
+      <div class="cta-arrow">←</div>
+    </a>
+
+    <button onclick="openArchive()" class="cta-card cta-archive">
+      <div class="cta-icon">📚</div>
+      <div class="cta-text">
+        <div class="cta-label">צפייה · ארכיון</div>
+        <div class="cta-title">📊 מאגר המידע</div>
+        <div class="cta-sub">תיקי ילדים · היסטוריה · תובנות מהעבר</div>
+      </div>
+      <div class="cta-arrow">←</div>
+    </button>
+  </div>
+
+  <!-- בחירת זהות (קומפקטי) -->
+  <div id="user-select" style="display:none">
+    <div class="section-label">מי נכנסת למאגר?</div>
+    <div class="user-grid">
+      <a class="user-card" onclick="selectUser('בתאל קגן','ראש העין','manager')">
+        <div class="user-emoji">🌸</div>
+        <div class="user-info">
+          <div class="user-name">בתאל קגן</div>
+          <div class="user-role">מנהלת צהרוני גני ילדים · ראש העין</div>
+        </div>
+        <div class="user-arrow">←</div>
+      </a>
+
+      <a class="user-card" onclick="selectUser('ד&quot;ר רגינה חסון','באר טוביה','manager')">
+        <div class="user-emoji">🌷</div>
+        <div class="user-info">
+          <div class="user-name">ד"ר רגינה חסון</div>
+          <div class="user-role">מנהלת פדגוגית צהרונים · באר טוביה</div>
+        </div>
+        <div class="user-arrow">←</div>
+      </a>
+
+      <a class="user-card" onclick="selectUser('ימית יוסף','באר טוביה','manager')">
+        <div class="user-emoji">🌺</div>
+        <div class="user-info">
+          <div class="user-name">ימית יוסף</div>
+          <div class="user-role">מנהלת גני ילדים · באר טוביה</div>
+        </div>
+        <div class="user-arrow">←</div>
+      </a>
+
+      <a class="user-card" onclick="selectUser('מרים כוכב','משרד','office')">
+        <div class="user-emoji">⭐</div>
+        <div class="user-info">
+          <div class="user-name">מרים כוכב</div>
+          <div class="user-role">מנהלת משרד</div>
+        </div>
+        <div class="user-arrow">←</div>
+      </a>
+
+      <a class="user-card" onclick="selectUser('שלומית צורדקר','משרד','office')">
+        <div class="user-emoji">💼</div>
+        <div class="user-info">
+          <div class="user-name">שלומית צורדקר</div>
+          <div class="user-role">צוות משרד</div>
+        </div>
+        <div class="user-arrow">←</div>
+      </a>
+
+      <a class="user-card ceo-card" onclick="selectUser('אמיתי לוי','הכל','ceo')">
+        <div class="user-emoji">🦁</div>
+        <div class="user-info">
+          <div class="user-name">אמיתי לוי</div>
+          <div class="user-role">מנכ"ל</div>
+        </div>
+        <div class="user-arrow">←</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="footer-info">
+    🔒 גישה מורשית בלבד · תיעוד פנים-ארגוני<br>
+    <a href="/">← חזרה לאתר הראשי</a>
+  </div>
+</div>
+
+<script>
+function openArchive() {
+  // אם כבר מחובר - לעבור ישר
+  const existing = localStorage.getItem('kfir_user');
+  if (existing) {
+    const u = JSON.parse(existing);
+    if (u.role === 'office' || u.role === 'ceo') {
+      location.href = 'office/';
+    } else {
+      location.href = 'batel/';
+    }
+    return;
+  }
+  // אחרת - לפתוח את רשימת הבחירה
+  document.getElementById('user-select').style.display = 'block';
+  document.getElementById('user-select').scrollIntoView({ behavior: 'smooth' });
+}
+window.openArchive = openArchive;
+
+// מיפוי שם → ID לאימות
+const USER_IDS = {
+  'בתאל קגן': 'batel',
+  'ד"ר רגינה חסון': 'regina',
+  'ימית יוסף': 'yamit',
+  'מרים כוכב': 'miriam',
+  'שלומית צורדקר': 'shlomit',
+  'אמיתי לוי': 'amitai'
+};
+
+function selectUser(name, area, role) {
+  // אם כבר מחוברת תקפה - לעבור ישר
+  const existing = JSON.parse(localStorage.getItem('kfir_user') || '{}');
+  if (existing.uid && existing.name === name) {
+    if (role === 'office' || role === 'ceo') location.href = 'office/';
+    else location.href = 'batel/';
+    return;
+  }
+  // אחרת - לאימות SMS
+  const userId = USER_IDS[name];
+  if (userId) {
+    location.href = `auth/?u=${userId}`;
+  } else {
+    alert('משתמש לא מוכר');
+  }
+}
+window.selectUser = selectUser;
+
+// אם כבר מחובר - הצעה לעבור ישירות
+const existing = localStorage.getItem('kfir_user');
+if (existing) {
+  const u = JSON.parse(existing);
+  const banner = document.getElementById('continue-banner');
+  banner.className = 'continue-banner';
+  banner.innerHTML = `
+    <div style="font-size:13px;color:var(--gray)">מחוברת כבר כ-<strong style="color:var(--indigo-dark)">${u.name}</strong></div>
+    <button class="continue-btn" onclick="continueAsLast()">למאגר →</button>
+  `;
+}
+
+function continueAsLast() {
+  const u = JSON.parse(localStorage.getItem('kfir_user'));
+  if (u.role === 'office' || u.role === 'ceo') {
+    location.href = 'office/';
+  } else {
+    location.href = 'batel/';
+  }
+}
+window.continueAsLast = continueAsLast;
+</script>
+</body>
+</html>

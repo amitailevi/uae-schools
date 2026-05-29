@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kfir-p.co.il/sitemap.xml

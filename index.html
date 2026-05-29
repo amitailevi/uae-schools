@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kfir | Enrichment Classes, After-School Programs & Day Camps for Schools</title>
+<meta name="description" content="Kfir Educational Services — enrichment classes, after-school programs (צהרונים), day camps and activities for schools and kindergartens. Operating in Israel, Dubai & China.">
+<link rel="icon" href="public/kfir-lion.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+Arabic:wght@400;500;700&family=Rubik:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R2L2MGGVZF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-R2L2MGGVZF');</script>
+<style>
+:root{--bg:#0A1628;--bg2:#101E33;--bg3:#162440;--gold:#D4A853;--orange:#E8853A;--red:#E94C5C;--green:#2ECC71;--blue:#3498DB;--purple:#9B59B6;--cyan:#1ABC9C;--white:#FFF;--light:rgba(255,255,255,.85);--muted:rgba(255,255,255,.5);--dim:rgba(255,255,255,.08);--r:16px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);line-height:1.6;overflow-x:hidden}
+body[dir="rtl"]{font-family:'Rubik','Noto Sans Arabic',sans-serif}
+body[data-lang="zh"]{font-family:'Noto Sans SC','Inter',sans-serif}
+a{text-decoration:none;color:inherit}
+img{max-width:100%}
+
+/* === TOPBAR === */
+.topbar{background:rgba(0,0,0,.3);padding:8px 0;font-size:12px;color:var(--muted);border-bottom:1px solid var(--dim)}
+.topbar .wrap{max-width:1260px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center}
+.topbar-contact{display:flex;gap:20px}
+.topbar-contact a{color:var(--muted);transition:.2s}
+.topbar-contact a:hover{color:var(--gold)}
+.lang-btns{display:flex;gap:4px}
+.lang-btn{background:transparent;border:1.5px solid var(--dim);color:var(--muted);padding:3px 10px;border-radius:6px;font-size:11px;cursor:pointer;transition:.2s;font-family:inherit}
+.lang-btn:hover,.lang-btn.active{background:var(--gold);border-color:var(--gold);color:var(--bg)}
+
+/* === NAV === */
+.navbar{position:sticky;top:0;z-index:100;background:rgba(10,22,40,.92);backdrop-filter:blur(24px);padding:14px 0;border-bottom:1px solid var(--dim)}
+.navbar .wrap{max-width:1260px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:20px;letter-spacing:.5px}
+.logo img{height:42px;width:42px;border-radius:10px}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+.nav-links a{color:var(--light);font-weight:500;font-size:14px;transition:.2s;position:relative}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:.3s}
+.nav-links a:hover::after{width:100%}
+.btn{padding:12px 28px;border-radius:999px;font-weight:700;font-size:14px;transition:all .25s;display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:none}
+.btn-gold{background:var(--gold);color:var(--bg)}.btn-gold:hover{background:#C4983E;transform:translateY(-2px)}
+.btn-outline{background:transparent;border:2px solid rgba(255,255,255,.25);color:var(--white)}.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.btn-green{background:var(--green);color:var(--white)}.btn-green:hover{background:#27AE60;transform:translateY(-2px)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:8px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--white);transition:.3s}
+
+/* === HERO SLIDER === */
+.hero{padding:0;position:relative;overflow:hidden;height:100vh;background:#000}
+.hero-slider{position:relative;width:100%;height:100%}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s;display:flex;align-items:center;pointer-events:none}
+.hero-slide.active{opacity:1;z-index:2;pointer-events:auto}
+.hero-slide-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.7;transition:transform 6s ease}
+.hero-slide.active .hero-slide-bg{transform:scale(1.08)}
+.hero-slide::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,22,40,.6) 0%,rgba(10,22,40,.25) 50%,rgba(10,22,40,.1) 100%);z-index:1}
+.hero-slide::after{content:'';position:absolute;bottom:0;left:0;right:0;height:140px;background:linear-gradient(to top,var(--bg),transparent);z-index:1}
+.hero-slide .wrap{position:relative;z-index:3;opacity:0;transform:translateY(20px);transition:opacity .4s,transform .4s}
+.hero-slide.active .wrap{opacity:1;transform:none;transition:opacity .6s .5s,transform .6s .5s}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(212,168,83,.1);border:1px solid rgba(212,168,83,.25);color:var(--gold);padding:8px 20px;border-radius:999px;font-size:13px;font-weight:600;margin-bottom:20px;letter-spacing:.5px}
+.hero-slide h1{font-size:clamp(36px,5vw,62px);font-weight:900;line-height:1.08;margin-bottom:16px;max-width:720px}
+.hero-slide h1 .gold{color:var(--gold)}
+.hero-slide-desc{font-size:17px;color:var(--light);max-width:540px;margin-bottom:32px;line-height:1.7}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.hero-bottom{position:absolute;bottom:0;left:0;right:0;z-index:10;padding:0 28px 32px}
+.hero-stats{display:flex;gap:40px;flex-wrap:wrap;justify-content:center;margin-bottom:20px}
+.stat{text-align:center}.stat-num{font-size:36px;font-weight:900;color:var(--gold);display:block;line-height:1.1}.stat-label{font-size:11px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:1px}
+.hero-dots{display:flex;gap:8px;justify-content:center}
+.hero-dot{width:36px;height:4px;border-radius:2px;background:rgba(255,255,255,.25);cursor:pointer;transition:.3s;border:none;padding:0}
+.hero-dot.active{background:var(--gold);width:52px}
+
+/* === SECTIONS === */
+section{padding:90px 0}
+.wrap{max-width:1260px;margin:0 auto;padding:0 28px}
+.section-tag{display:inline-block;color:var(--gold);font-weight:700;font-size:12px;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
+.section-title{font-size:clamp(26px,3.5vw,42px);font-weight:800;line-height:1.12;margin-bottom:16px}
+.section-desc{font-size:15px;color:var(--muted);max-width:520px;line-height:1.7}
+.text-center{text-align:center}.mx-auto{margin-left:auto;margin-right:auto}
+
+/* === PROGRAMS === */
+.programs{background:var(--bg2)}
+.programs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.prog-card{background:var(--bg);border:1px solid var(--dim);border-radius:var(--r);padding:32px 24px;position:relative;overflow:hidden;transition:.3s}
+.prog-card:hover{transform:translateY(-6px);border-color:rgba(212,168,83,.25);box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.prog-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.prog-card:nth-child(1)::before{background:var(--orange)}
+.prog-card:nth-child(2)::before{background:var(--blue)}
+.prog-card:nth-child(3)::before{background:var(--red)}
+.prog-card:nth-child(4)::before{background:var(--green)}
+.prog-card:nth-child(5)::before{background:var(--cyan)}
+.prog-card:nth-child(6)::before{background:var(--purple)}
+.prog-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:18px}
+.prog-card:nth-child(1) .prog-icon{background:rgba(232,133,58,.12)}
+.prog-card:nth-child(2) .prog-icon{background:rgba(52,152,219,.12)}
+.prog-card:nth-child(3) .prog-icon{background:rgba(233,76,92,.12)}
+.prog-card:nth-child(4) .prog-icon{background:rgba(46,204,113,.12)}
+.prog-card:nth-child(5) .prog-icon{background:rgba(26,188,156,.12)}
+.prog-card:nth-child(6) .prog-icon{background:rgba(155,89,182,.12)}
+.prog-card h3{font-size:17px;font-weight:700;margin-bottom:8px}
+.prog-card p{font-size:13px;color:var(--muted);line-height:1.65}
+.prog-ages{display:inline-block;background:var(--dim);padding:3px 10px;border-radius:999px;font-size:11px;font-weight:600;color:var(--light);margin-top:12px}
+.prog-img{width:100%;height:180px;object-fit:cover;border-radius:12px;margin-bottom:16px;transition:opacity .6s ease,transform .4s,filter .4s;filter:brightness(.9)}
+.prog-card:hover .prog-img{filter:brightness(1);transform:scale(1.03)}
+
+/* === SCROLL REVEAL === */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* === PHOTO STRIP === */
+.photo-strip{padding:0;overflow:hidden}
+.photo-strip-inner{display:flex;gap:0;animation:marquee 30s linear infinite}
+.photo-strip-inner img{height:280px;width:auto;object-fit:cover;flex-shrink:0;filter:brightness(.85);transition:.3s}
+.photo-strip-inner img:hover{filter:brightness(1)}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* === ABOUT === */
+.about .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:48px}
+.about-features{display:flex;flex-direction:column;gap:20px}
+.about-feat{display:flex;gap:16px;align-items:flex-start}
+.about-feat-icon{width:44px;height:44px;border-radius:12px;background:rgba(212,168,83,.1);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.about-feat h4{font-size:15px;font-weight:700;margin-bottom:4px}
+.about-feat p{font-size:13px;color:var(--muted);line-height:1.5}
+.about-img{background:var(--bg3);border:1px solid var(--dim);border-radius:var(--r);padding:40px;text-align:center}
+.about-img-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(212,168,83,.12);border:1px solid rgba(212,168,83,.2);padding:12px 24px;border-radius:999px;color:var(--gold);font-weight:700;font-size:18px;margin-bottom:24px}
+.trust-logos{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-top:20px}
+.trust-item{text-align:center;color:var(--muted);font-size:12px}
+.trust-item span{display:block;font-size:28px;margin-bottom:4px}
+
+/* === STAFF TRAINING === */
+.staff{background:var(--bg2);position:relative;overflow:hidden}
+.staff::before{content:'';position:absolute;bottom:0;right:0;width:500px;height:500px;background:radial-gradient(circle,rgba(46,204,113,.04),transparent 70%);border-radius:50%}
+.staff .wrap{position:relative;z-index:2}
+.staff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px}
+.staff-card{background:var(--bg);border:1px solid var(--dim);border-radius:var(--r);padding:28px 20px;text-align:center;transition:.3s;position:relative;overflow:hidden}
+.staff-card:hover{border-color:rgba(46,204,113,.25);transform:translateY(-4px)}
+.staff-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green)}
+.staff-icon{font-size:36px;margin-bottom:12px}
+.staff-card h4{font-size:14px;font-weight:700;margin-bottom:6px}
+.staff-card p{font-size:12px;color:var(--muted);line-height:1.55}
+@media(max-width:1024px){.staff-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.staff-grid{grid-template-columns:1fr}}
+
+/* === CHAIRMAN (Beckham-style) === */
+.chairman{background:var(--bg2);position:relative;overflow:hidden}
+.chairman::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(212,168,83,.03) 0%,transparent 50%)}
+.chairman .wrap{position:relative;z-index:2}
+.chairman-inner{display:grid;grid-template-columns:380px 1fr;gap:60px;align-items:center}
+.portrait-frame{text-align:center}
+.portrait-photo{width:340px;height:340px;border-radius:50%;margin:0 auto 24px;position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.4),0 0 80px rgba(212,168,83,.15)}
+.portrait-photo img{width:100%;height:100%;object-fit:cover;object-position:center;filter:none}
+.portrait-photo::after{content:none}
+.portrait-photo::before{content:none}
+.portrait-photo-name{position:absolute;bottom:20px;left:0;right:0;z-index:3;text-align:center}
+.portrait-photo-name h3{font-family:'Playfair Display',serif;font-size:24px;color:var(--white);margin-bottom:2px}
+.portrait-photo-name span{color:var(--gold);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase}
+.portrait-fallback{width:340px;height:420px;border-radius:20px;background:linear-gradient(135deg,#1a2a45,#243b5a);margin:0 auto 24px;display:flex;align-items:center;justify-content:center;border:2px solid rgba(212,168,83,.3);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.portrait-initials{font-size:80px;font-weight:900;color:var(--gold);opacity:.8;letter-spacing:6px}
+.signature{font-family:'Playfair Display',serif;font-style:italic;font-size:24px;color:rgba(212,168,83,.5);border-bottom:1px solid rgba(212,168,83,.25);display:inline-block;padding-bottom:4px;margin-top:8px}
+.chairman-text h2{font-size:clamp(24px,3vw,36px);font-weight:800;line-height:1.2;margin-bottom:20px}
+.chairman-text .gold{color:var(--gold)}
+.chairman-quote{font-size:16px;color:var(--light);line-height:1.8;margin-bottom:24px;border-left:3px solid var(--gold);padding-left:20px}
+.chairman-bio{font-size:14px;color:var(--muted);line-height:1.7}
+
+/* === STORY === */
+.story{position:relative;overflow:hidden}
+.story::before{content:'';position:absolute;top:0;right:0;width:400px;height:400px;background:radial-gradient(circle,rgba(212,168,83,.05),transparent 70%);border-radius:50%}
+.story .wrap{position:relative;z-index:2}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px}
+.timeline{display:flex;flex-direction:column;gap:28px}
+.timeline-item{display:flex;gap:20px;position:relative}
+.timeline-dot{width:14px;height:14px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:4px;position:relative;z-index:2}
+.timeline-item::before{content:'';position:absolute;left:6px;top:18px;width:2px;height:calc(100% + 14px);background:rgba(212,168,83,.15)}
+.timeline-item:last-child::before{display:none}
+.timeline-item h4{font-size:15px;font-weight:700;margin-bottom:4px}
+.timeline-item .year{color:var(--gold);font-size:12px;font-weight:700;letter-spacing:1px;margin-bottom:4px;display:block}
+.timeline-item p{font-size:13px;color:var(--muted);line-height:1.6}
+.story-text h3{font-size:clamp(20px,2.5vw,30px);font-weight:800;line-height:1.3;margin-bottom:20px}
+.story-text h3 .gold{color:var(--gold)}
+.story-text>p{font-size:15px;color:var(--light);line-height:1.8;margin-bottom:16px}
+
+/* === TESTIMONIALS === */
+.testimonials{background:var(--bg2)}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.test-card{background:var(--bg);border:1px solid var(--dim);border-radius:var(--r);padding:28px 24px;position:relative;transition:.3s}
+.test-card:hover{border-color:rgba(212,168,83,.2);transform:translateY(-4px)}
+.test-card::before{content:'\201C';position:absolute;top:16px;right:20px;font-size:48px;color:rgba(212,168,83,.15);font-family:'Playfair Display',serif;line-height:1}
+.test-quote{font-size:14px;color:var(--light);line-height:1.7;margin-bottom:20px;font-style:italic}
+.test-author{display:flex;align-items:center;gap:12px;border-top:1px solid var(--dim);padding-top:16px}
+.test-avatar{width:40px;height:40px;border-radius:50%;background:rgba(212,168,83,.12);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--gold);font-weight:700;flex-shrink:0}
+.test-author h5{font-size:13px;font-weight:700;margin-bottom:2px}
+.test-author span{font-size:11px;color:var(--muted)}
+
+/* === CREDENTIALS === */
+.credentials{position:relative;overflow:hidden}
+.credentials::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(212,168,83,.04),transparent 70%);border-radius:50%}
+.credentials .wrap{position:relative;z-index:2}
+.cred-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(46,204,113,.08);border:1px solid rgba(46,204,113,.25);color:var(--green);padding:6px 16px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.5px;margin-bottom:32px}
+.cred-badge::before{content:'✓';font-weight:900}
+.gov-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px;margin-bottom:56px}
+.gov-card{background:var(--bg2);border:1px solid var(--dim);border-radius:var(--r);padding:24px 20px;text-align:center;transition:.3s;position:relative;overflow:hidden}
+.gov-card:hover{border-color:rgba(212,168,83,.25);transform:translateY(-4px)}
+.gov-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold)}
+.gov-seal{width:48px;height:48px;border-radius:50%;background:rgba(212,168,83,.08);border:2px solid rgba(212,168,83,.2);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 12px}
+.gov-card h4{font-size:14px;font-weight:700;margin-bottom:4px}
+.gov-card p{font-size:11px;color:var(--muted);line-height:1.5}
+.gov-tag{display:inline-block;background:rgba(46,204,113,.1);color:var(--green);font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;margin-top:8px;letter-spacing:.3px}
+.docs-img-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:56px}
+.doc-img-card{position:relative;background:#FDFBF5;border:4px solid var(--gold);border-radius:6px;overflow:hidden;cursor:pointer;transition:.4s;box-shadow:0 8px 40px rgba(0,0,0,.3),inset 0 0 0 5px #FDFBF5,inset 0 0 0 6px rgba(212,168,83,.2)}
+.doc-img-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.doc-img-card img{width:100%;display:block}
+.doc-img-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(10,22,40,.95) 40%,transparent);padding:24px 16px 14px}
+.doc-img-label h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:2px}
+.doc-img-label p{font-size:11px;color:rgba(255,255,255,.65)}
+.doc-img-badge{position:absolute;top:10px;right:10px;background:rgba(46,204,113,.92);color:#fff;font-size:9px;font-weight:700;padding:3px 8px;border-radius:3px;letter-spacing:.3px;z-index:2}
+.doc-extra-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:56px}
+.doc-extra{background:var(--bg2);border:1px solid var(--dim);border-radius:var(--r);padding:20px;transition:.3s;position:relative;overflow:hidden;border-top:3px solid var(--gold)}
+.doc-extra:hover{border-color:rgba(212,168,83,.25);transform:translateY(-4px)}
+.doc-extra h4{font-size:13px;font-weight:700;margin-bottom:4px}
+.doc-extra p{font-size:11px;color:var(--muted);line-height:1.55;margin-bottom:8px}
+.doc-extra .doc-link{font-size:11px;color:var(--gold);text-decoration:none;font-weight:600}
+.doc-extra .doc-link:hover{text-decoration:underline}
+.doc-lightbox{position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:9999;display:none;align-items:center;justify-content:center;cursor:zoom-out}
+.doc-lightbox.open{display:flex}
+.doc-lightbox img{max-width:92vw;max-height:90vh;border:4px solid var(--gold);border-radius:4px;box-shadow:0 0 80px rgba(212,168,83,.3)}
+.doc-lightbox-close{position:absolute;top:20px;right:28px;color:#fff;font-size:32px;cursor:pointer;opacity:.7;transition:.2s;background:none;border:none}
+.doc-lightbox-close:hover{opacity:1}
+.qual-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.qual-card{background:var(--bg2);border:1px solid var(--dim);border-radius:var(--r);padding:20px;display:flex;gap:14px;align-items:flex-start;transition:.3s}
+.qual-card:hover{border-color:rgba(212,168,83,.2)}
+.qual-icon{width:42px;height:42px;border-radius:12px;background:rgba(212,168,83,.08);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.qual-card h5{font-size:13px;font-weight:700;margin-bottom:3px}
+.qual-card p{font-size:11px;color:var(--muted);line-height:1.5}
+
+/* === MARKETS === */
+.markets-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.market-card{background:var(--bg2);border:1px solid var(--dim);border-radius:var(--r);padding:32px 24px;transition:.3s}
+.market-card:hover{transform:translateY(-4px);border-color:rgba(212,168,83,.2)}
+.market-flag{font-size:40px;margin-bottom:14px}
+.market-card h3{font-size:18px;font-weight:700;margin-bottom:8px}
+.market-card p{font-size:13px;color:var(--muted);line-height:1.65}
+.market-stat{display:inline-block;margin-top:14px;background:rgba(212,168,83,.1);color:var(--gold);padding:5px 14px;border-radius:999px;font-size:12px;font-weight:600}
+
+/* === WHY === */
+.why{background:var(--bg2)}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px}
+.why-item{text-align:center;padding:28px 16px;background:var(--bg);border:1px solid var(--dim);border-radius:var(--r);transition:.3s}
+.why-item:hover{border-color:rgba(212,168,83,.2);transform:translateY(-4px)}
+.why-num{font-size:44px;font-weight:900;color:var(--gold);line-height:1;margin-bottom:8px}
+.why-item h4{font-size:14px;font-weight:700;margin-bottom:6px}
+.why-item p{font-size:12px;color:var(--muted);line-height:1.5}
+
+/* === CTA === */
+.cta-section{background:linear-gradient(135deg,var(--gold),var(--orange));text-align:center;padding:80px 0}
+.cta-section h2{font-size:clamp(26px,3.5vw,38px);font-weight:800;margin-bottom:14px;color:var(--bg)}
+.cta-section p{font-size:15px;color:rgba(10,22,40,.7);margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto}
+.btn-dark{background:var(--bg);color:var(--white);padding:16px 40px;border-radius:999px;font-weight:700;font-size:15px;transition:.25s;display:inline-flex;align-items:center;gap:8px}
+.btn-dark:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.3)}
+
+/* === FOOTER === */
+footer{background:rgba(0,0,0,.3);color:var(--muted);padding:60px 0 24px;border-top:1px solid var(--dim)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:800;color:var(--white);margin-bottom:12px}
+.footer-brand img{height:32px;width:32px;border-radius:8px}
+.footer-brand em{color:var(--gold);font-style:normal}
+footer p{font-size:13px;line-height:1.7}
+footer h4{color:var(--white);font-size:13px;font-weight:700;margin-bottom:14px;text-transform:uppercase;letter-spacing:1px}
+footer ul{list-style:none}
+footer ul li{margin-bottom:8px}
+footer a{color:var(--muted);font-size:13px;transition:.2s}
+footer a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid var(--dim);padding-top:20px;display:flex;justify-content:space-between;font-size:11px}
+
+/* === WHATSAPP === */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:999;width:56px;height:56px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(46,204,113,.4);transition:.3s;cursor:pointer}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(46,204,113,.5)}
+.wa-float svg{width:28px;height:28px;fill:var(--white)}
+
+/* === MOBILE NAV === */
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,22,40,.98);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:24px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);font-size:20px;font-weight:600}
+.mobile-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--white);font-size:28px;cursor:pointer}
+
+/* === RESPONSIVE === */
+@media(max-width:1024px){
+  .chairman-inner{grid-template-columns:1fr;text-align:center}
+  .chairman-quote{border-left:none;padding-left:0;border-top:3px solid var(--gold);padding-top:16px}
+  .programs-grid{grid-template-columns:repeat(2,1fr)}
+  .story-grid{grid-template-columns:1fr}
+  .test-grid{grid-template-columns:1fr}
+  .portrait-photo,.portrait-fallback{width:280px;height:280px;margin:0 auto 20px}
+  .gov-grid{grid-template-columns:repeat(2,1fr)}
+  .docs-img-grid{grid-template-columns:1fr}
+  .doc-extra-grid{grid-template-columns:1fr}
+  .qual-row{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .nav-links{display:none}.hamburger{display:flex}
+  .programs-grid,.markets-grid,.gov-grid{grid-template-columns:1fr}
+  .docs-img-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .hero-stats{gap:20px}.stat-num{font-size:32px}
+  .hero-slide h1{font-size:clamp(28px,4.5vw,48px)}
+  .hero-stats{gap:16px}.stat-num{font-size:28px}
+  .topbar-contact{display:none}
+  .about .about-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .why-grid,.footer-grid{grid-template-columns:1fr}
+  .hero-ctas{flex-direction:column}
+  .btn{text-align:center;justify-content:center;width:100%}
+  .footer-bottom{flex-direction:column;gap:6px}
+  .portrait-circle{width:180px;height:180px}.portrait-initials{font-size:56px}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="topbar-contact">
+      <a href="mailto:officekfirz@gmail.com">officekfirz@gmail.com</a>
+      <a href="tel:+972523898467">+972-52-389-8467</a>
+    </div>
+    <div class="lang-btns">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('ar')">AR</button>
+      <button class="lang-btn" onclick="setLang('zh')">CN</button>
+      <button class="lang-btn" onclick="setLang('he')">HE</button>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="wrap">
+    <a href="#" class="logo">
+      <img src="public/kfir-lion.png" alt="Kfir">
+      KFIR <span>Education</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#programs" data-i18n data-en="Programs" data-ar="البرامج" data-zh="课程" data-he="תוכניות"></a></li>
+      <li><a href="#about" data-i18n data-en="About" data-ar="عنا" data-zh="关于我们" data-he="אודות"></a></li>
+      <li><a href="#staff" data-i18n data-en="Team" data-ar="الفريق" data-zh="团队" data-he="צוות"></a></li>
+      <li><a href="#chairman" data-i18n data-en="Leadership" data-ar="القيادة" data-zh="领导层" data-he="הנהלה"></a></li>
+      <li><a href="#credentials" data-i18n data-en="Credentials" data-ar="اعتمادات" data-zh="资质" data-he="הסמכות"></a></li>
+      <li><a href="#markets" data-i18n data-en="Global" data-ar="عالمي" data-zh="全球" data-he="בינלאומי"></a></li>
+      <li><a href="#contact" class="btn btn-gold" data-i18n data-en="Book a Free Trial" data-ar="احجز تجربة مجانية" data-zh="预约免费体验" data-he="תאמו שיעור ניסיון"></a></li>
+    </ul>
+    <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.add('open')"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu">
+  <button class="mobile-close" onclick="this.parentElement.classList.remove('open')">&times;</button>
+  <a href="#programs" onclick="this.parentElement.classList.remove('open')" data-i18n data-en="Programs" data-ar="البرامج" data-zh="课程" data-he="תוכניות"></a>
+  <a href="#about" onclick="this.parentElement.classList.remove('open')" data-i18n data-en="About" data-ar="عنا" data-zh="关于我们" data-he="אודות"></a>
+  <a href="#staff" onclick="this.parentElement.classList.remove('open')" data-i18n data-en="Team" data-ar="الفريق" data-zh="团队" data-he="צוות"></a>
+  <a href="#chairman" onclick="this.parentElement.classList.remove('open')" data-i18n data-en="Leadership" data-ar="القيادة" data-zh="领导层" data-he="הנהלה"></a>
+  <a href="#credentials" onclick="this.parentElement.classList.remove('open')" data-i18n data-en="Credentials" data-ar="اعتمادات" data-zh="资质" data-he="הסמכות"></a>
+  <a href="#markets" onclick="this.parentElement.classList.remove('open')" data-i18n data-en="Global" data-ar="عالمي" data-zh="全球" data-he="בינלאומי"></a>
+  <a href="#contact" class="btn btn-gold" onclick="this.parentElement.classList.remove('open')" data-i18n data-en="Book a Free Trial" data-ar="احجز تجربة مجانية" data-zh="预约免费体验" data-he="תאמו שיעור ניסיון"></a>
+</div>
+
+<!-- HERO SLIDER -->
+<section class="hero">
+  <div class="hero-slider">
+    <!-- 1: Sport -->
+    <div class="hero-slide active">
+      <div class="hero-slide-bg" data-hero-imgs="photo-1680024436315-fb06267264b2,photo-1566308356054-9a2d0164508f,photo-1643236943728-2745b38cbcf7" style="background-image:url('https://images.unsplash.com/photo-1680024436315-fb06267264b2?w=1600&q=80')"></div>
+      <div class="wrap">
+        <div class="hero-tag" data-i18n data-en="⚽ Sport Enrichment" data-ar="⚽ إثراء رياضي" data-zh="⚽ 体育兴趣班" data-he="⚽ חוגי ספורט"></div>
+        <h1><span data-i18n data-en="Professional Sport" data-ar="تدريب رياضي" data-zh="专业体育" data-he="אימוני ספורט"></span><br><span class="gold" data-i18n data-en="Training for Schools" data-ar="احترافي للمدارس" data-zh="校园训练课程" data-he="מקצועיים לבתי ספר"></span></h1>
+        <p class="hero-slide-desc" data-i18n data-en="Football, basketball, handball, capoeira, judo & athletics. Certified coaches, structured programs, tournaments." data-ar="كرة القدم والسلة واليد والكابويرا والجودو. مدربون معتمدون وبرامج منظمة وبطولات." data-zh="足球、篮球、手球、卡波耶拉、柔道。认证教练，系统训练，锦标赛。" data-he="כדורגל, כדורסל, כדוריד, קפוארה, ג'ודו ואתלטיקה. מאמנים מוסמכים, תוכניות מובנות, טורנירים."></p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-gold" data-i18n data-en="Schedule a Demo &#8594;" data-ar="&#8592; احجز عرضاً" data-zh="预约演示 →" data-he="&#8592; תאמו הדגמה"></a>
+          <a href="#programs" class="btn btn-outline" data-i18n data-en="All Programs" data-ar="جميع البرامج" data-zh="所有课程" data-he="כל התוכניות"></a>
+        </div>
+      </div>
+    </div>
+    <!-- 2: Dance -->
+    <div class="hero-slide">
+      <div class="hero-slide-bg" data-hero-imgs="photo-1758671914940-ccab366cd5b8,photo-1655842556539-db2d2099ded1,photo-1667386431450-311489120a71" style="background-image:url('https://images.unsplash.com/photo-1758671914940-ccab366cd5b8?w=1600&q=80')"></div>
+      <div class="wrap">
+        <div class="hero-tag" data-i18n data-en="💃 Dance & Wellness" data-ar="💃 رقص وعافية" data-zh="💃 舞蹈与健康" data-he="💃 ריקוד ובריאות"></div>
+        <h1><span data-i18n data-en="Dance, Movement &" data-ar="رقص وحركة و" data-zh="舞蹈、运动与" data-he="ריקוד, תנועה"></span><br><span class="gold" data-i18n data-en="Healthy Living" data-ar="حياة صحية" data-zh="健康生活" data-he="וחיים בריאים"></span></h1>
+        <p class="hero-slide-desc" data-i18n data-en="Hip-hop, Zumba Kids, aerobics, movement coordination. Healthy cooking workshops and nutrition awareness." data-ar="هيب هوب وزومبا أطفال وتمارين رياضية. ورش طبخ صحي وتوعية غذائية." data-zh="嘻哈、少儿Zumba、有氧运动。健康烹饪工坊和营养意识。" data-he="היפ-הופ, זומבה קידס, אירובי, קואורדינציית תנועה. סדנאות בישול בריא ומודעות תזונתית."></p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-gold" data-i18n data-en="Schedule a Demo &#8594;" data-ar="&#8592; احجز عرضاً" data-zh="预约演示 →" data-he="&#8592; תאמו הדגמה"></a>
+          <a href="#programs" class="btn btn-outline" data-i18n data-en="All Programs" data-ar="جميع البرامج" data-zh="所有课程" data-he="כל התוכניות"></a>
+        </div>
+      </div>
+    </div>
+    <!-- 3: Creative English -->
+    <div class="hero-slide">
+      <div class="hero-slide-bg" data-hero-imgs="photo-1771765812031-22653b4c70a6,photo-1536221993589-9edbbca2c7fc,photo-1765947390303-a1eec15447f4" style="background-image:url('https://images.unsplash.com/photo-1771765812031-22653b4c70a6?w=1600&q=80')"></div>
+      <div class="wrap">
+        <div class="hero-tag" data-i18n data-en="🎨 Creative English" data-ar="🎨 الإنجليزية الإبداعية" data-zh="🎨 创意英语" data-he="🎨 אנגלית יצירתית"></div>
+        <h1><span data-i18n data-en="English in Motion —" data-ar="الإنجليزية بالحركة —" data-zh="动感英语 —" data-he="אנגלית בתנועה —"></span><br><span class="gold" data-i18n data-en="Learn Through Experience" data-ar="التعلم من خلال التجربة" data-zh="体验式学习" data-he="ללמוד דרך חוויה"></span></h1>
+        <p class="hero-slide-desc" data-i18n data-en="English through drama, art, music, games and physical movement. Active, immersive language learning." data-ar="الإنجليزية من خلال الدراما والفن والموسيقى والألعاب. تعلم لغوي نشط وغامر." data-zh="通过戏剧、艺术、音乐和游戏学英语。沉浸式语言学习。" data-he="אנגלית דרך דרמה, אומנות, מוזיקה, משחקים ותנועה. למידה פעילה וסוחפת."></p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-gold" data-i18n data-en="Schedule a Demo &#8594;" data-ar="&#8592; احجز عرضاً" data-zh="预约演示 →" data-he="&#8592; תאמו הדגמה"></a>
+          <a href="#programs" class="btn btn-outline" data-i18n data-en="All Programs" data-ar="جميع البرامج" data-zh="所有课程" data-he="כל התוכניות"></a>
+        </div>
+      </div>
+    </div>
+    <!-- 4: Tech & AI -->
+    <div class="hero-slide">
+      <div class="hero-slide-bg" data-hero-imgs="photo-1585980243496-fe29a36bd382,photo-1603354351149-e97b9124020d,photo-1623076189461-f7706b741c04" style="background-image:url('https://images.unsplash.com/photo-1585980243496-fe29a36bd382?w=1600&q=80')"></div>
+      <div class="wrap">
+        <div class="hero-tag" data-i18n data-en="💻 Tech & AI Kids" data-ar="💻 تكنولوجيا وذكاء اصطناعي" data-zh="💻 儿童科技AI" data-he="💻 טק ו-AI לילדים"></div>
+        <h1><span data-i18n data-en="Technology &" data-ar="التكنولوجيا و" data-zh="科技与" data-he="טכנולוגיה ו"></span><br><span class="gold" data-i18n data-en="AI for the Future" data-ar="الذكاء الاصطناعي للمستقبل" data-zh="面向未来的AI教育" data-he="בינה מלאכותית לעתיד"></span></h1>
+        <p class="hero-slide-desc" data-i18n data-en="Coding, robotics, artificial intelligence and digital creation. Hands-on STEM that prepares kids for tomorrow." data-ar="برمجة وروبوتات وذكاء اصطناعي وإبداع رقمي. ورش STEM عملية تحضر الأطفال للمستقبل." data-zh="编程、机器人、人工智能和数字创作。面向未来的STEM实践。" data-he="קידוד, רובוטיקה, בינה מלאכותית ויצירה דיגיטלית. סדנאות STEM מעשיות שמכינות ילדים לעתיד."></p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-gold" data-i18n data-en="Schedule a Demo &#8594;" data-ar="&#8592; احجز عرضاً" data-zh="预约演示 →" data-he="&#8592; תאמו הדגמה"></a>
+          <a href="#programs" class="btn btn-outline" data-i18n data-en="All Programs" data-ar="جميع البرامج" data-zh="所有课程" data-he="כל התוכניות"></a>
+        </div>
+      </div>
+    </div>
+    <!-- 5: Premium After-School -->
+    <div class="hero-slide">
+      <div class="hero-slide-bg" data-hero-imgs="photo-1588072432904-843af37f03ed,photo-1728494049079-c262d3facee0,photo-1567057420215-0afa9aa9253a" style="background-image:url('https://images.unsplash.com/photo-1588072432904-843af37f03ed?w=1600&q=80')"></div>
+      <div class="wrap">
+        <div class="hero-tag" data-i18n data-en="🎓 Premium After-School" data-ar="🎓 ما بعد المدرسة المتميز" data-zh="🎓 优质课后托管" data-he="🎓 צהרון פרימיום"></div>
+        <h1><span data-i18n data-en="Full-Service" data-ar="خدمة شاملة" data-zh="全方位" data-he="צהרון שירות מלא"></span><br><span class="gold" data-i18n data-en="After-School Programs" data-ar="لما بعد المدرسة" data-zh="课后托管服务" data-he="לגנים ולבתי ספר"></span></h1>
+        <p class="hero-slide-desc" data-i18n data-en="Hot meals, homework support, daily enrichment, birthday parties, shows, peak-day events. Professional staff, safe pickup — all in one." data-ar="وجبات ساخنة ودعم واجبات وإثراء يومي وحفلات وعروض. طاقم محترف وتوصيل آمن — الكل في واحد." data-zh="热餐、作业辅导、每日兴趣课、生日派对、表演、高潮活动日。专业团队，安全接送。" data-he="ארוחות חמות, ליווי שיעורי בית, חוגי העשרה יומיים, מסיבות, הצגות, ימי שיא. צוות מקצועי, איסוף בטוח — הכל בחבילה אחת."></p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-gold" data-i18n data-en="Schedule a Demo &#8594;" data-ar="&#8592; احجز عرضاً" data-zh="预约演示 →" data-he="&#8592; תאمו הדגמה"></a>
+          <a href="#programs" class="btn btn-outline" data-i18n data-en="All Programs" data-ar="جميع البرامج" data-zh="所有课程" data-he="כל התוכניות"></a>
+        </div>
+      </div>
+    </div>
+    <!-- 6: Day Camps -->
+    <div class="hero-slide">
+      <div class="hero-slide-bg" data-hero-imgs="photo-1717689411347-f427e4cfa632,photo-1762921168425-a55f36045ade,photo-1710787452705-d54c4a487c81" style="background-image:url('https://images.unsplash.com/photo-1717689411347-f427e4cfa632?w=1600&q=80')"></div>
+      <div class="wrap">
+        <div class="hero-tag" data-i18n data-en="☀️ Day Camps" data-ar="☀️ معسكرات يومية" data-zh="☀️ 日间营地" data-he="☀️ קייטנות"></div>
+        <h1><span data-i18n data-en="Summer & Holiday" data-ar="معسكرات صيفية" data-zh="暑期与假期" data-he="קייטנות קיץ"></span><br><span class="gold" data-i18n data-en="Day Camps" data-ar="وعطلات" data-zh="日间营地" data-he="וחופשות"></span></h1>
+        <p class="hero-slide-desc" data-i18n data-en="Action-packed day camps with sports, art, nature, trips and endless fun. Professional supervision, structured daily schedules." data-ar="معسكرات مليئة بالأنشطة: رياضة وفنون وطبيعة ورحلات. إشراف مهني وجداول منظمة." data-zh="精彩纷呈的日间营地：运动、艺术、自然、郊游。专业管理，系统日程安排。" data-he="קייטנות פעילות עם ספורט, אומנות, טבע, טיולים וכיף אינסופי. הדרכה מקצועית, מערכת ימים מובנית."></p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-gold" data-i18n data-en="Schedule a Demo &#8594;" data-ar="&#8592; احجز عرضاً" data-zh="预约演示 →" data-he="&#8592; תאמו הדגמה"></a>
+          <a href="#programs" class="btn btn-outline" data-i18n data-en="All Programs" data-ar="جميع البرامج" data-zh="所有课程" data-he="כל התוכניות"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">20+</span><span class="stat-label" data-i18n data-en="Years" data-ar="سنة" data-zh="年" data-he="שנים"></span></div>
+      <div class="stat"><span class="stat-num">1,500+</span><span class="stat-label" data-i18n data-en="Students" data-ar="طالب" data-zh="学生" data-he="תלמידים"></span></div>
+      <div class="stat"><span class="stat-num">50+</span><span class="stat-label" data-i18n data-en="Schools" data-ar="مدرسة" data-zh="学校" data-he="בתי ספר"></span></div>
+      <div class="stat"><span class="stat-num">98%</span><span class="stat-label" data-i18n data-en="Renewal" data-ar="تجديد" data-zh="续约率" data-he="חידוש"></span></div>
+    </div>
+    <div class="hero-dots"></div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs" id="programs">
+  <div class="wrap">
+    <div class="text-center">
+      <div class="section-tag" data-i18n data-en="OUR PROGRAMS" data-ar="برامجنا" data-zh="我们的课程" data-he="התוכניות שלנו"></div>
+      <h2 class="section-title mx-auto" data-i18n data-en="Six Enrichment Tracks, One Complete Solution" data-ar="ستة مسارات إثراء، حل واحد متكامل" data-zh="六大兴趣方向 一站式解决方案" data-he="שישה מסלולי העשרה, פתרון אחד מלא"></h2>
+      <p class="section-desc mx-auto" data-i18n data-en="Comprehensive enrichment programs designed for schools and kindergartens. Every track includes certified instructors, full equipment, insurance and parent communication." data-ar="برامج إثراء شاملة مصممة للمدارس ورياض الأطفال. كل مسار يشمل مدربين معتمدين ومعدات كاملة وتأمين وتواصل مع أولياء الأمور." data-zh="为学校和幼儿园量身设计的综合兴趣课程。每个方向都配备认证教练、完整设备、保险和家长沟通。" data-he="תוכניות העשרה מקיפות המותאמות לבתי ספר ולגנים. כל מסלול כולל מדריכים מוסמכים, ציוד מלא, ביטוח ותקשורת עם הורים."></p>
+    </div>
+    <div class="programs-grid">
+      <!-- 1. Sport -->
+      <div class="prog-card reveal">
+        <img class="prog-img" src="https://images.unsplash.com/photo-1752673510841-275144e92ed3?w=600&q=80" alt="Kid kicking soccer ball" loading="lazy">
+        <div class="prog-icon">&#9917;</div>
+        <h3 data-i18n data-en="Sport" data-ar="الرياضة" data-zh="体育运动" data-he="ספורט"></h3>
+        <p data-i18n
+           data-en="Football, basketball, handball, dodgeball, capoeira, judo and athletics. Tournaments, fitness challenges and team-building through structured training by certified coaches."
+           data-ar="كرة القدم والسلة واليد والحارقة والكابويرا والجودو وألعاب القوى. بطولات وتحديات لياقة وبناء فريق من خلال تدريب منظم بأيدي مدربين معتمدين."
+           data-zh="足球、篮球、手球、躲避球、卡波耶拉、柔道和田径。锦标赛、体能挑战和认证教练指导下的团队训练。"
+           data-he="כדורגל, כדורסל, כדוריד, דודג'בול, קפוארה, ג'ודו ואתלטיקה. טורנירים, אתגרי כושר ובניית צוות באימון מובנה בהנחיית מאמנים מוסמכים."></p>
+        <span class="prog-ages" data-i18n data-en="Ages 4-14" data-ar="الأعمار ٤-١٤" data-zh="4-14岁" data-he="גילאי 4-14"></span>
+      </div>
+      <!-- 2. Tech & AI -->
+      <div class="prog-card reveal">
+        <img class="prog-img" src="https://images.unsplash.com/photo-1603354351149-e97b9124020d?w=600&q=80" alt="Kids robot computer VR tech" loading="lazy">
+        <div class="prog-icon">&#128187;</div>
+        <h3 data-i18n data-en="Tech & AI Kids" data-ar="تكنولوجيا وذكاء اصطناعي" data-zh="儿童科技与AI" data-he="טק ו-AI Kids"></h3>
+        <p data-i18n
+           data-en="Introduction to coding, robotics, artificial intelligence and digital creation. Hands-on STEM workshops that prepare kids for the future."
+           data-ar="مقدمة في البرمجة والروبوتات والذكاء الاصطناعي والإبداع الرقمي. ورش عمل STEM عملية تحضر الأطفال للمستقبل."
+           data-zh="编程、机器人、人工智能和数字创作入门。动手实践的STEM工坊，为孩子们的未来做好准备。"
+           data-he="היכרות עם קידוד, רובוטיקה, בינה מלאכותית ויצירה דיגיטלית. סדנאות STEM מעשיות שמכינות ילדים לעתיד."></p>
+        <span class="prog-ages" data-i18n data-en="Ages 6-14" data-ar="الأعمار ٦-١٤" data-zh="6-14岁" data-he="גילאי 6-14"></span>
+      </div>
+      <!-- 3. Healthy & Dance -->
+      <div class="prog-card reveal">
+        <img class="prog-img" src="https://images.unsplash.com/photo-1655842556539-db2d2099ded1?w=600&q=80" alt="Ballet zumba dance performance" loading="lazy">
+        <div class="prog-icon">&#128131;</div>
+        <h3 data-i18n data-en="Healthy & Dance" data-ar="صحة ورقص" data-zh="健康与舞蹈" data-he="בריאות וריקוד"></h3>
+        <p data-i18n
+           data-en="Hip-hop, contemporary, Zumba Kids, aerobics and movement coordination. Healthy cooking workshops, nutrition awareness and body expression — building confidence, wellness habits and a love of movement."
+           data-ar="هيب هوب ومعاصر وزومبا أطفال وتمارين رياضية وتنسيق حركي. ورش طبخ صحي وتوعية غذائية وتعبير جسدي — بناء الثقة وعادات صحية وحب الحركة."
+           data-zh="嘻哈、现代舞、少儿Zumba、有氧运动和运动协调。健康烹饪工坊、营养意识和身体表达——培养自信、健康习惯和运动热情。"
+           data-he="היפ-הופ, מודרני, זומבה קידס, אירובי וקואורדינציית תנועה. סדנאות בישול בריא, מודעות תזונתית וביטוי גופני — בניית ביטחון עצמי, הרגלי בריאות ואהבת התנועה."></p>
+        <span class="prog-ages" data-i18n data-en="Ages 4-12" data-ar="الأعمار ٤-١٢" data-zh="4-12岁" data-he="גילאי 4-12"></span>
+      </div>
+      <!-- 4. Creative English -->
+      <div class="prog-card reveal">
+        <img class="prog-img" src="https://images.unsplash.com/photo-1536221993589-9edbbca2c7fc?w=600&q=80" alt="Kids crafts games outdoor English" loading="lazy">
+        <div class="prog-icon">&#127912;</div>
+        <h3 data-i18n data-en="Creative English" data-ar="الإنجليزية الإبداعية" data-zh="创意英语" data-he="אנגלית יצירתית"></h3>
+        <p data-i18n
+           data-en="English through drama, art, music, games and physical movement. 'English in Motion' methodology — active, immersive language learning that connects body and mind for lasting results."
+           data-ar="الإنجليزية من خلال الدراما والفن والموسيقى والألعاب والحركة. منهجية 'الإنجليزية بالحركة' — تعلم لغوي نشط وغامر يربط الجسد بالعقل لنتائج دائمة."
+           data-zh="通过戏剧、艺术、音乐、游戏和身体运动学习英语。'动感英语'教学法——主动沉浸式语言学习，身心结合，效果持久。"
+           data-he="אנגלית דרך דרמה, אומנות, מוזיקה, משחקים ותנועה. שיטת 'אנגלית בתנועה' — למידה פעילה וסוחפת שמחברת גוף ונפש לתוצאות שנשארות."></p>
+        <span class="prog-ages" data-i18n data-en="Ages 4-12" data-ar="الأعمار ٤-١٢" data-zh="4-12岁" data-he="גילאי 4-12"></span>
+      </div>
+      <!-- 5. Sci-Tech -->
+      <div class="prog-card reveal">
+        <img class="prog-img" src="https://images.unsplash.com/photo-1574645434327-cb7970fe2e13?w=600&q=80" alt="Kids nature science engineering" loading="lazy">
+        <div class="prog-icon">&#128300;</div>
+        <h3 data-i18n data-en="Sci-Tech" data-ar="العلوم والتكنولوجيا" data-zh="科学技术" data-he="סייטק"></h3>
+        <p data-i18n
+           data-en="Science experiments, engineering challenges and discovery workshops. Hands-on exploration of physics, chemistry, biology and environmental science."
+           data-ar="تجارب علمية وتحديات هندسية وورش اكتشاف. استكشاف عملي للفيزياء والكيمياء والأحياء والعلوم البيئية."
+           data-zh="科学实验、工程挑战和探索工坊。物理、化学、生物和环境科学的动手实践。"
+           data-he="ניסויים מדעיים, אתגרי הנדסה וסדנאות גילוי. חקירה מעשית של פיזיקה, כימיה, ביולוגיה ומדעי הסביבה."></p>
+        <span class="prog-ages" data-i18n data-en="Ages 5-13" data-ar="الأعمار ٥-١٣" data-zh="5-13岁" data-he="גילאי 5-13"></span>
+      </div>
+      <!-- 6. Premium After-School -->
+      <div class="prog-card reveal">
+        <img class="prog-img" src="https://images.unsplash.com/photo-1728494049079-c262d3facee0?w=600&q=80" alt="Kids eating homework activities" loading="lazy">
+        <div class="prog-icon">&#127891;</div>
+        <h3 data-i18n data-en="Premium After-School" data-ar="ما بعد المدرسة المتميز" data-zh="优质课后托管" data-he="צהרון פרימיום"></h3>
+        <p data-i18n
+           data-en="Full-service after-school with hot meals, homework support, daily enrichment workshops (art, drama, music, sports, cooking), birthday parties, holiday celebrations, shows, magicians, animal encounters, peak-day events, songs and gifts. Professional certified staff, parent communication and safe pickup — all in one package."
+           data-ar="حل ما بعد المدرسة الشامل: وجبات ساخنة ودعم للواجبات وورش إثراء يومية (فنون ودراما وموسيقى ورياضة وطبخ) وحفلات أعياد ميلاد واحتفالات بالأعياد وعروض وساحرون وتجارب مع الحيوانات وأيام ذروة وأغاني وهدايا. طاقم مؤهل محترف وتوصيل آمن — الكل في حزمة واحدة."
+           data-zh="全方位课后托管：热餐、作业辅导、每日兴趣工坊（美术、戏剧、音乐、运动、烹饪）、生日派对、节日庆典、演出、魔术师、动物互动、高潮活动日、歌唱和礼物。专业认证团队、家长沟通和安全接送——一站式解决。"
+           data-he="צהרון שירות מלא: ארוחות חמות, ליווי שיעורי בית, חוגי העשרה יומיים (אומנות, דרמה, מוזיקה, ספורט, בישול בריא), מסיבות יום הולדת, חגיגות חגים, הצגות, קוסמים, פינת חי, ימי שיא, שירים ומתנות. צוות מוסמך ומקצועי, תקשורת עם הורים ואיסוף בטוח — הכל בחבילה אחת."></p>
+        <span class="prog-ages" data-i18n data-en="Ages 3-12" data-ar="الأعمار ٣-١٢" data-zh="3-12岁" data-he="גילאי 3-12"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap reveal">
+    <div class="section-tag" data-i18n data-en="THE KFIR METHOD" data-ar="منهج كفير" data-zh="KFIR教学法" data-he="שיטת כפיר"></div>
+    <h2 class="section-title" data-i18n data-en="Israeli Education Excellence, Delivered Globally" data-ar="التميز التعليمي الإسرائيلي، عالمياً" data-zh="以色列教育卓越 全球输出" data-he="מצוינות חינוכית ישראלית, מגיעה לעולם"></h2>
+    <p class="section-desc" data-i18n data-en="20 years of proven success in Israel's most competitive school tenders. Now available for international schools and kindergartens." data-ar="٢٠ عامًا من النجاح المثبت في أكثر مناقصات المدارس تنافسية في إسرائيل. متاح الآن للمدارس الدولية." data-zh="20年以色列最具竞争力的学校项目投标成功经验。现面向国际学校和幼儿园开放。" data-he="20 שנות הצלחה מוכחת במכרזי בתי ספר התחרותיים ביותר בישראל. עכשיו זמין לבתי ספר בינלאומיים."></p>
+    <div class="about-grid">
+      <div class="about-features">
+        <div class="about-feat">
+          <div class="about-feat-icon">&#9989;</div>
+          <div>
+            <h4 data-i18n data-en="Certified Instructors" data-ar="مدربون معتمدون" data-zh="认证教练" data-he="מדריכים מוסמכים"></h4>
+            <p data-i18n data-en="Every coach is certified, background-checked, and trained in our method" data-ar="كل مدرب معتمد وموثق ومدرب على منهجنا" data-zh="每位教练均经过认证、背景审查和方法论培训" data-he="כל מדריך מוסמך, עם בדיקת רקע, ומאומן בשיטה שלנו"></p>
+          </div>
+        </div>
+        <div class="about-feat">
+          <div class="about-feat-icon">&#128203;</div>
+          <div>
+            <h4 data-i18n data-en="Turnkey Operations" data-ar="إدارة شاملة جاهزة" data-zh="交钥匙式运营" data-he="ניהול תפעולי מקצה לקצה"></h4>
+            <p data-i18n data-en="Coaches, equipment, insurance, lesson plans, parent communication and logistics — we manage it all so you can focus on academics" data-ar="المدربون والمعدات والتأمين وخطط الدروس والتواصل مع الأهالي — نحن ندير كل شيء حتى تتمكنوا من التركيز على الأكاديميات" data-zh="教练、设备、保险、教案、家长沟通和后勤——我们全程管理，让您专注于教学" data-he="מדריכים, ציוד, ביטוח, מערכי שיעור, תקשורת עם הורים ולוגיסטיקה — אנחנו מנהלים הכל כדי שתתמקדו בלימודים"></p>
+          </div>
+        </div>
+        <div class="about-feat">
+          <div class="about-feat-icon">&#127942;</div>
+          <div>
+            <h4 data-i18n data-en="Government Approved" data-ar="معتمد حكومياً" data-zh="政府认证" data-he="אישור ממשלתי"></h4>
+            <p data-i18n data-en="Approved by Israel's Ministry of Education, winner of municipal tenders" data-ar="معتمد من وزارة التعليم الإسرائيلية، فائز بمناقصات بلدية" data-zh="获以色列教育部认证，市政投标中标单位" data-he="מאושר משרד החינוך, זוכה במכרזים עירוניים"></p>
+          </div>
+        </div>
+        <div class="about-feat">
+          <div class="about-feat-icon">&#127758;</div>
+          <div>
+            <h4 data-i18n data-en="Scalable Model" data-ar="نموذج قابل للتوسع" data-zh="可扩展模式" data-he="מודל סקלבילי"></h4>
+            <p data-i18n data-en="White-label ready — we adapt to your school's branding and curriculum" data-ar="جاهز للعلامة البيضاء — نتكيف مع علامة مدرستكم ومناهجها" data-zh="白标方案——我们适配您学校的品牌和课程体系" data-he="מוכן למיתוג לבן — אנחנו מתאימים למיתוג ולתוכנית של בית הספר שלכם"></p>
+          </div>
+        </div>
+        <div class="about-feat">
+          <div class="about-feat-icon">&#127881;</div>
+          <div>
+            <h4 data-i18n data-en="Special Events & Peak Days" data-ar="فعاليات خاصة وأيام ذروة" data-zh="特别活动与高潮日" data-he="אירועים מיוחדים וימי שיא"></h4>
+            <p data-i18n data-en="Birthday parties, shows, magicians, performers, peak-day experiences and themed events throughout the year" data-ar="حفلات أعياد ميلاد وعروض وساحرون وفنانون وتجارب أيام الذروة وفعاليات موضوعية على مدار العام" data-zh="生日派对、表演、魔术师、高潮活动日和全年主题活动" data-he="מסיבות יום הולדת, הצגות, קוסמים, אמנים, ימי שיא ואירועים נושאיים לאורך כל השנה"></p>
+          </div>
+        </div>
+        <div class="about-feat">
+          <div class="about-feat-icon">&#127860;</div>
+          <div>
+            <h4 data-i18n data-en="Healthy Nutrition" data-ar="تغذية صحية" data-zh="健康饮食" data-he="הזנה בריאה ומאוזנת"></h4>
+            <p data-i18n data-en="Catering that meets strict Health Ministry standards — zero sugar, minimal salt, daily fruit. Kids learn the food pyramid and eat accordingly (WHO guidelines). Healthy cooking workshops build lifelong habits." data-ar="تموين يلتزم بمعايير وزارة الصحة الصارمة — بدون سكر وملح قليل وفاكهة يومية. الأطفال يتعلمون هرم الغذاء ويأكلون وفقاً لإرشادات منظمة الصحة العالمية. ورش الطبخ الصحي تبني عادات مدى الحياة." data-zh="符合卫生部严格标准的餐饮——零糖、少盐、每日水果。孩子们学习食物金字塔，按世卫组织指南饮食。健康烹饪工坊培养终身习惯。" data-he="קייטרינג העומד בסטנדרטים המחמירים של משרד הבריאות — ללא סוכר, מלח מופחת, פרי כל יום. הילדים לומדים על פירמידת המזון ואוכלים לפיה (הנחיות ארגון הבריאות העולמי). סדנאות בישול בריא מקנות הרגלים לחיים."></p>
+          </div>
+        </div>
+      </div>
+      <div class="about-img" style="padding:0;overflow:hidden">
+        <img src="https://images.unsplash.com/photo-1540479859555-17af45c78602?w=600&q=80" alt="Kids sports" style="width:100%;height:320px;object-fit:cover;border-radius:var(--r) var(--r) 0 0">
+        <div style="padding:24px">
+        <div class="about-img-badge">&#127942; 20+ Years of Excellence</div>
+        <p style="color:var(--gold);font-weight:700;font-size:16px;margin-bottom:8px">Kfir Educational Services</p>
+        <p style="color:var(--muted);font-size:13px" data-i18n data-en="Trusted by municipalities, schools and thousands of families across Israel" data-ar="موثوق من البلديات والمدارس وآلاف العائلات في إسرائيل" data-zh="受到以色列各地市政府、学校和数千家庭的信赖" data-he="מהימנים על ידי רשויות, בתי ספר ואלפי משפחות ברחבי ישראל"></p>
+        <div class="trust-logos">
+          <div class="trust-item"><span>&#127963;</span>Ra'anana</div>
+          <div class="trust-item"><span>&#127963;</span>Beer Tuvia</div>
+          <div class="trust-item"><span>&#127963;</span>Lev HaSharon</div>
+          <div class="trust-item"><span>&#127963;</span>Rosh HaAyin</div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAFF TRAINING -->
+<section class="staff" id="staff">
+  <div class="wrap reveal">
+    <div class="text-center">
+      <div class="section-tag" data-i18n data-en="OUR TEAM" data-ar="فريقنا" data-zh="我们的团队" data-he="הצוות שלנו"></div>
+      <h2 class="section-title" data-i18n data-en="Trained, Certified & Happy Staff" data-ar="طاقم مدرب ومعتمد وسعيد" data-zh="训练有素、快乐的专业团队" data-he="צוות מיומן, מוסמך ושמח"></h2>
+      <p class="section-desc mx-auto" data-i18n
+         data-en="Our instructors, teachers and assistants are the heart of Kfir. We invest in their professional growth — so they arrive every day happy, empowered and ready to inspire your children."
+         data-ar="مدربونا ومعلمونا ومساعدونا هم قلب كفير. نستثمر في نموهم المهني — ليأتوا كل يوم سعداء وممكّنين ومستعدين لإلهام أطفالكم."
+         data-zh="我们的教练、教师和助教是Kfir的核心。我们投资于他们的专业成长——让他们每天充满热情、信心十足地激励您的孩子。"
+         data-he="המדריכים, המורים והסייעות שלנו הם הלב של כפיר. אנחנו משקיעים בצמיחה המקצועית שלהם — כדי שיגיעו כל יום שמחים, מועצמים ומוכנים להשראות את ילדיכם."></p>
+    </div>
+    <div class="staff-grid">
+      <div class="staff-card">
+        <div class="staff-icon">🎓</div>
+        <h4 data-i18n data-en="Professional Certification" data-ar="شهادة مهنية" data-zh="专业认证" data-he="הסמכה מקצועית"></h4>
+        <p data-i18n data-en="Every staff member completes a structured training program and receives official certification before entering the classroom" data-ar="كل موظف يكمل برنامج تدريب منظم ويحصل على شهادة رسمية قبل دخول الفصل" data-zh="每位员工完成系统培训并获得正式认证后方可进入课堂" data-he="כל איש צוות משלים תוכנית הכשרה מובנית ומקבל הסמכה רשמית לפני כניסה לכיתה"></p>
+      </div>
+      <div class="staff-card">
+        <div class="staff-icon">😊</div>
+        <h4 data-i18n data-en="Happy & Empowered" data-ar="سعداء وممكّنون" data-zh="快乐赋能" data-he="שמחים ומועצמים"></h4>
+        <p data-i18n data-en="Instructors, teachers and assistants who love what they do — creating a warm, positive atmosphere that children feel" data-ar="مدربون ومعلمون ومساعدون يحبون عملهم — يخلقون جوًا دافئًا وإيجابيًا يشعر به الأطفال" data-zh="热爱工作的教练和教师——营造温暖积极的氛围，让孩子们感受到关爱" data-he="מדריכים, מורים וסייעות שאוהבים את מה שהם עושים — יוצרים אווירה חמה וחיובית שהילדים מרגישים"></p>
+      </div>
+      <div class="staff-card">
+        <div class="staff-icon">📚</div>
+        <h4 data-i18n data-en="Continuous Development" data-ar="تطوير مستمر" data-zh="持续发展" data-he="פיתוח מתמשך"></h4>
+        <p data-i18n data-en="Regular workshops, mentoring sessions and skills upgrades throughout the year — our team never stops growing" data-ar="ورش عمل منتظمة وجلسات توجيه وتطوير مهارات على مدار العام — فريقنا لا يتوقف عن النمو" data-zh="定期工坊、导师指导和技能提升贯穿全年——我们的团队持续成长" data-he="סדנאות קבועות, חונכות ושדרוג מיומנויות לאורך כל השנה — הצוות שלנו לא מפסיק לצמוח"></p>
+      </div>
+      <div class="staff-card">
+        <div class="staff-icon">🤝</div>
+        <h4 data-i18n data-en="Guidance & Support" data-ar="توجيه ودعم" data-zh="指导与支持" data-he="הדרכה וליווי"></h4>
+        <p data-i18n data-en="Pedagogical coaching, team meetings and personal mentoring — every team member is guided and supported" data-ar="تدريب تربوي واجتماعات فريق وإرشاد شخصي — كل عضو في الفريق يحظى بالتوجيه والدعم" data-zh="教学指导、团队会议和个人辅导——每位团队成员都得到引导和支持" data-he="הנחיה פדגוגית, ישיבות צוות וחונכות אישית — כל איש צוות מקבל הדרכה וליווי"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAIRMAN -->
+<section class="chairman" id="chairman">
+  <div class="wrap">
+    <div class="chairman-inner">
+      <div class="portrait-frame">
+        <div class="portrait-photo">
+          <img src="public/amitai.jpg?v=2" alt="Amitai Levi" onerror="this.parentElement.style.display='none';this.parentElement.nextElementSibling.style.display='flex'">
+          <div class="portrait-photo-name">
+            <h3>Amitai Levi</h3>
+            <span data-i18n data-en="Chairman of the Board" data-ar="رئيس مجلس الإدارة" data-zh="董事长" data-he="יו&quot;ר החברה"></span>
+          </div>
+        </div>
+        <div class="portrait-fallback" style="display:none">
+          <span class="portrait-initials">AL</span>
+        </div>
+        <div class="signature">Amitai Levi</div>
+      </div>
+      <div class="chairman-text">
+        <div class="section-tag" data-i18n data-en="LEADERSHIP" data-ar="القيادة" data-zh="领导层" data-he="הנהלה"></div>
+        <h2 data-i18n
+            data-en="A Vision for Children's Education &mdash; <span class='gold'>Across Borders</span>"
+            data-ar="رؤية لتعليم الأطفال &mdash; <span class='gold'>عبر الحدود</span>"
+            data-zh="儿童教育的愿景 &mdash; <span class='gold'>跨越国界</span>"
+            data-he="חזון לחינוך ילדים &mdash; <span class='gold'>חוצה גבולות</span>"></h2>
+        <div class="chairman-quote" data-i18n
+             data-en="Every child deserves access to structured, high-quality enrichment — regardless of where they live. We built this model in Israel over 20 years, and now we're bringing it to the world."
+             data-ar="كل طفل يستحق الوصول إلى إثراء منظم وعالي الجودة — بغض النظر عن مكان إقامته. بنينا هذا النموذج في إسرائيل على مدى ٢٠ عامًا، والآن نقدمه للعالم."
+             data-zh="每个孩子都应该获得系统化、高质量的兴趣教育——无论他们身处何方。我们在以色列用20年打造了这个模式，现在正将其带向世界。"
+             data-he="כל ילד ראוי לגישה להעשרה מובנית ואיכותית — בלי קשר למקום מגוריו. בנינו את המודל הזה בישראל ב-20 שנה, ועכשיו אנחנו מביאים אותו לעולם."></div>
+        <p class="chairman-bio" data-i18n
+           data-en="Amitai Levi is the founder and chairman of Levi Ventures Ltd., the parent company behind Kfir Educational Services. A pedagogical and organizational coach with two decades of experience in Israel's education sector, he has built and managed enrichment programs for major municipalities including Ra'anana, Beer Tuvia, and Lev HaSharon. Under his leadership, Kfir has grown from a local after-school provider to an international education company operating in Israel, the UAE and China."
+           data-ar="أميتاي ليفي هو المؤسس ورئيس مجلس إدارة Levi Ventures Ltd.، الشركة الأم لخدمات كفير التعليمية. مدرب تربوي وتنظيمي بخبرة عقدين في قطاع التعليم الإسرائيلي، قام ببناء وإدارة برامج إثراء لبلديات رئيسية. تحت قيادته، نمت كفير من مزود محلي إلى شركة تعليمية دولية تتوسع في الإمارات والصين."
+           data-zh="Amitai Levi是Levi Ventures Ltd.的创始人兼董事长，该公司是Kfir教育服务的母公司。作为一位拥有二十年以色列教育领域经验的教学和组织教练，他为多个主要城市建设和管理了兴趣教育项目。在他的领导下，Kfir已从当地课后服务提供商发展成为正在向阿联酋和中国扩展的国际教育公司。"
+           data-he="אמיתי לוי הוא המייסד ויו״ר אמיתי לוי יזמות בע״מ, חברת האם של שירותי כפיר החינוכיים. מנחה פדגוגי וארגוני עם שני עשורים של ניסיון בתחום החינוך בישראל, בנה וניהל תוכניות העשרה עבור רשויות מרכזיות כולל רעננה, באר טוביה ולב השרון. תחת הנהגתו, כפיר צמחה ממפעיל צהרונים מקומי לחברת חינוך בינלאומית הפועלת בישראל, באמירויות ובסין."></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="wrap">
+    <div class="section-tag" data-i18n data-en="OUR STORY" data-ar="قصتنا" data-zh="我们的故事" data-he="הסיפור שלנו"></div>
+    <h2 class="section-title" data-i18n data-en="From a Field in Israel to Schools Worldwide" data-ar="من ملعب في إسرائيل إلى مدارس حول العالم" data-zh="从以色列的运动场到全球学校" data-he="משדה בישראל לבתי ספר בעולם"></h2>
+    <div class="story-grid">
+      <div class="story-text">
+        <h3 data-i18n
+            data-en="A coach who believed every child deserves <span class='gold'>structured enrichment</span>"
+            data-ar="مدرب آمن بأن كل طفل يستحق <span class='gold'>إثراءً منظماً</span>"
+            data-zh="一位相信每个孩子都值得<span class='gold'>系统化教育</span>的教练"
+            data-he="מאמן שהאמין שכל ילד ראוי <span class='gold'>להעשרה מובנית</span>"></h3>
+        <p data-i18n
+           data-en="It started with a single after-school program in a small Israeli town. Amitai Levi saw something that bothered him: kids finishing school with nowhere productive to go, no structured activities, no professional coaching. He decided to change that."
+           data-ar="بدأت بـبرنامج واحد بعد المدرسة في بلدة إسرائيلية صغيرة. رأى أميتاي ليفي شيئاً أزعجه: أطفال ينهون المدرسة بدون مكان منتج للذهاب إليه. قرر تغيير ذلك."
+           data-zh="一切始于以色列一个小镇的一个课后项目。Amitai Levi看到了令他困扰的现象：孩子们放学后无处可去，没有系统化的活动。他决定改变这一切。"
+           data-he="הכל התחיל מצהרון אחד בעיירה קטנה בישראל. אמיתי לוי ראה משהו שהפריע לו: ילדים שמסיימים את הלימודים בלי שום מסגרת מועילה, בלי פעילויות מובנות, בלי הדרכה מקצועית. הוא החליט לשנות את זה."></p>
+        <p data-i18n
+           data-en="Over 20 years, he built Kfir into a full-service education company — winning competitive municipal tenders, earning government certification, and gaining the trust of thousands of families. Today, Kfir operates in multiple cities across Israel and is expanding internationally."
+           data-ar="على مدى ٢٠ عامًا، بنى كفير لتصبح شركة تعليمية متكاملة الخدمات — فائزة بمناقصات بلدية تنافسية وحاصلة على اعتماد حكومي وثقة آلاف العائلات. اليوم تعمل كفير في مدن متعددة وتتوسع دولياً."
+           data-zh="20年间，他将Kfir打造成一家全方位教育公司——赢得竞争激烈的市政投标，获得政府认证，赢得数千家庭的信赖。如今Kfir在以色列多个城市运营，并正在向国际扩展。"
+           data-he="ב-20 שנה, הוא בנה את כפיר לחברת חינוך מלאה — זוכה במכרזים עירוניים תחרותיים, מקבל אישור ממשלתי, וצובר אמון של אלפי משפחות. היום כפיר פועלת בערים רבות ומתרחבת בינלאומית."></p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div>
+            <span class="year">2004</span>
+            <h4 data-i18n data-en="The First Program" data-ar="البرنامج الأول" data-zh="第一个项目" data-he="התוכנית הראשונה"></h4>
+            <p data-i18n data-en="Launched the first Kfir after-school program with a handful of kids and a big vision" data-ar="أطلق أول برنامج كفير بعد المدرسة مع حفنة من الأطفال ورؤية كبيرة" data-zh="启动首个Kfir课后项目，几个孩子，一个宏大愿景" data-he="השקנו את צהרון כפיר הראשון עם קומץ ילדים וחזון גדול"></p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div>
+            <span class="year">2015</span>
+            <h4 data-i18n data-en="Municipal Tenders Won" data-ar="الفوز بمناقصات بلدية" data-zh="赢得市政投标" data-he="זכייה במכרזים עירוניים"></h4>
+            <p data-i18n data-en="Expanded to multiple municipalities — Ra'anana, Beer Tuvia, Lev HaSharon, Rosh HaAyin" data-ar="توسعنا لبلديات متعددة — رعنانا وبئر طوبيا ولب هشارون وروش هعاين" data-zh="拓展至多个城市——Ra'anana、Beer Tuvia、Lev HaSharon、Rosh HaAyin" data-he="התרחבנו לרשויות מרובות — רעננה, באר טוביה, לב השרון, ראש העין"></p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div>
+            <span class="year">2024</span>
+            <h4 data-i18n data-en="Six Enrichment Tracks" data-ar="ستة مسارات إثراء" data-zh="六大方向" data-he="שישה מסלולי העשרה"></h4>
+            <p data-i18n data-en="Expanded beyond sports into Tech & AI, Creative English, Sci-Tech, Dance and Premium After-School" data-ar="توسعنا لتشمل التكنولوجيا والذكاء الاصطناعي والإنجليزية الإبداعية والعلوم والرقص" data-zh="从体育拓展到科技AI、创意英语、科学技术、舞蹈和优质课后托管" data-he="התרחבנו מעבר לספורט — טק ו-AI, אנגלית יצירתית, סייטק, ריקוד וצהרון פרימיום"></p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div>
+            <span class="year">2025</span>
+            <h4 data-i18n data-en="Operating in 3 Countries" data-ar="نعمل في ٣ دول" data-zh="三国运营" data-he="פעילים ב-3 מדינות"></h4>
+            <p data-i18n data-en="Enrichment, after-school programs, day camps and activities across Israel, Dubai (UAE) and China" data-ar="إثراء وبرامج ما بعد المدرسة ومعسكرات يومية في إسرائيل ودبي والصين" data-zh="在以色列、迪拜和中国运营兴趣班、课后托管和日间营地" data-he="חוגים, צהרונים, קייטנות והפעלות בישראל, דובאי (איחוד האמירויות) וסין"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="wrap">
+    <div class="text-center">
+      <div class="section-tag" data-i18n data-en="TESTIMONIALS" data-ar="شهادات" data-zh="客户评价" data-he="המלצות"></div>
+      <h2 class="section-title" data-i18n data-en="Trusted by School Leaders" data-ar="موثوق من قبل قادة المدارس" data-zh="深受学校领导信赖" data-he="מנהלי בתי ספר ממליצים"></h2>
+    </div>
+    <div class="test-grid">
+      <div class="test-card">
+        <p class="test-quote" data-i18n
+           data-en="Amitai demonstrates full availability, fast and professional response, and a genuine connection to the educational spirit of the school. The after-school programs under his management provide children with a values-based, supportive framework with quality staff and rich content."
+           data-ar="يُظهر أمیتای توافراً كاملاً واستجابة سريعة ومهنية واتصالاً حقيقياً بالروح التعليمية للمدرسة. الأنشطة اللامنهجية بإدارته توفر للأطفال إطاراً قائماً على القيم مع طاقم مؤهل."
+           data-zh="Amitai展现了充分的响应能力、快速专业的服务，以及与学校教育精神的真正联结。他管理的课后项目为孩子们提供了基于价值观的支持性环境。"
+           data-he="אמיתי מגלה זמינות מלאה, מענה מהיר ומקצועי, וחיבור אמיתי לרוח החינוכית של בית הספר. הצהרונים בניהולו מספקים לילדים מסגרת ערכית, תומכת ומוקפדת."></p>
+        <div class="test-author">
+          <div class="test-avatar">BR</div>
+          <div>
+            <h5 data-i18n data-en="Batya Rabinovitz" data-ar="باتيا رابينوفيتش" data-zh="Batya Rabinovitz" data-he="בתיה רבינוביץ"></h5>
+            <span data-i18n data-en="Principal, Horev School, Ra'anana" data-ar="مديرة مدرسة حوريف، رعنانا" data-zh="Ra'anana Horev学校校长" data-he="מנהלת בי״ס חורב, רעננה"></span>
+          </div>
+        </div>
+      </div>
+      <div class="test-card">
+        <p class="test-quote" data-i18n
+           data-en="Kfir's programs have consistently exceeded our expectations. The professionalism, dedication and the structured approach to enrichment activities set them apart from any provider we've worked with before."
+           data-ar="برامج كفير تجاوزت توقعاتنا باستمرار. المهنية والتفاني والنهج المنظم للأنشطة الإثرائية يميزهم عن أي مزود تعاملنا معه سابقاً."
+           data-zh="Kfir的项目始终超出我们的期望。他们的专业精神、敬业态度和系统化的教学方法使其在所有合作方中脱颖而出。"
+           data-he="התוכניות של כפיר עלו באופן עקבי על הציפיות שלנו. המקצועיות, המסירות והגישה המובנית לפעילויות העשרה מבדילים אותם מכל ספק שעבדנו איתו."></p>
+        <div class="test-author">
+          <div class="test-avatar">SC</div>
+          <div>
+            <h5 data-i18n data-en="Sivan Cohen" data-ar="سيفان كوهين" data-zh="Sivan Cohen" data-he="סיון כהן"></h5>
+            <span data-i18n data-en="Director of Student Centers, Ra'anana Municipality" data-ar="مديرة مراكز الطلاب، بلدية رعنانا" data-zh="Ra'anana市学生中心主任" data-he="מנהלת בתי התלמיד, עיריית רעננה"></span>
+          </div>
+        </div>
+      </div>
+      <div class="test-card">
+        <p class="test-quote" data-i18n
+           data-en="Working with Kfir has been transformative for our school's enrichment offering. Their team brings energy, expertise and a level of operational excellence that allows us to focus on academics while they handle everything else."
+           data-ar="العمل مع كفير كان تحولياً لعروض الإثراء في مدرستنا. فريقهم يجلب الطاقة والخبرة ومستوى من التميز التشغيلي يسمح لنا بالتركيز على الأكاديميات."
+           data-zh="与Kfir的合作彻底改变了我们学校的兴趣教育。他们的团队带来了活力、专业知识和卓越的运营能力，让我们可以专注于学术工作。"
+           data-he="העבודה עם כפיר שינתה את פני ההעשרה בבית הספר שלנו. הצוות שלהם מביא אנרגיה, מומחיות ורמת מצוינות תפעולית שמאפשרת לנו להתמקד באקדמיה."></p>
+        <div class="test-author">
+          <div class="test-avatar">SS</div>
+          <div>
+            <h5 data-i18n data-en="Sivan Sela" data-ar="سيفان سيلا" data-zh="Sivan Sela" data-he="סיון סלע"></h5>
+            <span data-i18n data-en="Education Department Head" data-ar="رئيسة قسم التعليم" data-zh="教育部门主管" data-he="ראש מחלקת חינוך"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="credentials" id="credentials">
+  <div class="wrap">
+    <div class="text-center">
+      <div class="section-tag" data-i18n data-en="CREDENTIALS & ACCREDITATIONS" data-ar="الاعتمادات والشهادات" data-zh="资质与认证" data-he="אישורים והסמכות"></div>
+      <h2 class="section-title" data-i18n data-en="Government-Approved. Field-Proven." data-ar="معتمد حكومياً. مُثبت ميدانياً." data-zh="政府认证 实践验证" data-he="מאושר ממשלתית. מוכח בשטח."></h2>
+      <div class="cred-badge" data-i18n data-en="Faithful to Original Documents" data-ar="مطابق للمستندات الأصلية" data-zh="忠于原始文件" data-he="נאמן למסמכים המקוריים"></div>
+    </div>
+
+    <h3 style="color:var(--gold);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px" data-i18n data-en="MINISTRY OF EDUCATION APPROVED PROGRAMS" data-ar="برامج معتمدة من وزارة التربية" data-zh="教育部批准课程" data-he="תוכניות מאושרות משרד החינוך"></h3>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:0" data-i18n data-en="Officially certified enrichment programs by Israel's Ministry of Education" data-ar="برامج إثراء معتمدة رسمياً من وزارة التربية الإسرائيلية" data-zh="经以色列教育部正式认证的兴趣教育课程" data-he="תוכניות העשרה מוסמכות רשמית על ידי משרד החינוך"></p>
+    <div class="gov-grid">
+      <div class="gov-card">
+        <div class="gov-seal">⚽</div>
+        <h4 data-i18n data-en="Extreme Sports" data-ar="رياضات مغامرة" data-zh="极限运动" data-he="ספורט אתגרי"></h4>
+        <p data-i18n data-en="Challenge-based sports training program" data-ar="برنامج تدريب رياضي قائم على التحدي" data-zh="以挑战为核心的体育训练课程" data-he="תוכנית אימוני ספורט מבוססת אתגר"></p>
+        <div class="gov-tag" data-i18n data-en="APPROVED" data-ar="معتمد" data-zh="已认证" data-he="מאושר"></div>
+      </div>
+      <div class="gov-card">
+        <div class="gov-seal">🎨</div>
+        <h4 data-i18n data-en="Creative English" data-ar="الإنجليزية الإبداعية" data-zh="创意英语" data-he="אנגלית ביצירה"></h4>
+        <p data-i18n data-en="English through drama, art, music & games" data-ar="الإنجليزية من خلال الدراما والفن والموسيقى" data-zh="通过戏剧、艺术和音乐学习英语" data-he="אנגלית דרך דרמה, אומנות, מוזיקה ומשחקים"></p>
+        <div class="gov-tag" data-i18n data-en="APPROVED" data-ar="معتمد" data-zh="已认证" data-he="מאושר"></div>
+      </div>
+      <div class="gov-card">
+        <div class="gov-seal">🔬</div>
+        <h4 data-i18n data-en="Young Scientists" data-ar="العلماء الصغار" data-zh="少年科学家" data-he="מדענים צעירים"></h4>
+        <p data-i18n data-en="Hands-on science exploration & experiments" data-ar="استكشاف علمي وتجارب عملية" data-zh="动手科学探索与实验" data-he="מדע חווייתי וניסויים מעשיים"></p>
+        <div class="gov-tag" data-i18n data-en="APPROVED" data-ar="معتمد" data-zh="已认证" data-he="מאושר"></div>
+      </div>
+      <div class="gov-card">
+        <div class="gov-seal">💻</div>
+        <h4 data-i18n data-en="Tech & Web Dev" data-ar="التكنولوجيا والبرمجة" data-zh="科技与网站开发" data-he="כלים טכנולוגיים ואתרים"></h4>
+        <p data-i18n data-en="Technology tools & website building for kids" data-ar="أدوات تكنولوجية وبناء مواقع للأطفال" data-zh="少儿科技工具与网站构建" data-he="כלים טכנולוגיים ובניית אתרים לילדים"></p>
+        <div class="gov-tag" data-i18n data-en="APPROVED" data-ar="معتمد" data-zh="已认证" data-he="מאושר"></div>
+      </div>
+    </div>
+
+    <h3 style="color:var(--gold);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px" data-i18n data-en="OFFICIAL RECOMMENDATION LETTERS — ORIGINAL SCANS" data-ar="خطابات التوصية الرسمية — مسح ضوئي أصلي" data-zh="官方推荐信 — 原件扫描" data-he="מכתבי המלצה רשמיים — סריקות מקור"></h3>
+    <div class="docs-img-grid">
+      <div class="doc-img-card" onclick="openDoc('public/rec-morashtenu.jpg')">
+        <div class="doc-img-badge" data-i18n data-en="ORIGINAL" data-ar="أصلي" data-zh="原件" data-he="מקור"></div>
+        <img src="public/rec-morashtenu.jpg" alt="Morashtenu Recommendation" loading="lazy">
+        <div class="doc-img-label">
+          <h4 data-i18n data-en="Morashtenu Educational Center" data-ar="مركز موراشتينو التعليمي" data-zh="Morashtenu教育中心" data-he="מרכז מורשתנו"></h4>
+          <p data-i18n data-en="Roi Tzadok, Director — September 2009" data-ar="روعي تسادوك، مدير — سبتمبر 2009" data-zh="Roi Tzadok, 主任 — 2009年9月" data-he="רועי צדוק, מנהל מרכז — ספטמבר 2009"></p>
+        </div>
+      </div>
+      <div class="doc-img-card" onclick="openDoc('public/rec-mizrachi.jpg')">
+        <div class="doc-img-badge" data-i18n data-en="ORIGINAL" data-ar="أصلي" data-zh="原件" data-he="מקור"></div>
+        <img src="public/rec-mizrachi.jpg" alt="Mizrachi Melbourne Recommendation" loading="lazy">
+        <div class="doc-img-label">
+          <h4 data-i18n data-en="Mizrachi Organisation — Melbourne" data-ar="منظمة مزراحي — ملبورن" data-zh="Mizrachi组织 — 墨尔本" data-he="ארגון המזרחי — מלבורן"></h4>
+          <p data-i18n data-en="Elad Dahan, Kollel Head — Yavneh College, 2010" data-ar="إلعاد دهان، رئيس الكولل — كلية يافنيه، 2010" data-zh="Elad Dahan, 学院院长 — Yavneh学院, 2010" data-he="אלעד דהן, ראש כולל — ביה״ס יבנה, 2010"></p>
+        </div>
+      </div>
+      <div class="doc-img-card" onclick="openDoc('public/rec-hamaskil.jpg')">
+        <div class="doc-img-badge" data-i18n data-en="ORIGINAL" data-ar="أصلي" data-zh="原件" data-he="מקור"></div>
+        <img src="public/rec-hamaskil.jpg" alt="HaMaskil Recommendation" loading="lazy">
+        <div class="doc-img-label">
+          <h4 data-i18n data-en="HaMaskil Educational Projects" data-ar="هماسكيل للمشاريع التعليمية" data-zh="HaMaskil教育项目" data-he="המשכיל פרויקטים חינוכיים"></h4>
+          <p data-i18n data-en="VP — Kindergarten Programs, Petah Tikva, 2013" data-ar="نائب المدير — برامج رياض الأطفال، 2013" data-zh="副总裁 — 幼儿园项目, 2013" data-he="סמנכ״ל — צהרוני גני ילדים, פ״ת, 2013"></p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="color:var(--gold);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px" data-i18n data-en="ADDITIONAL RECOMMENDATIONS" data-ar="توصيات إضافية" data-zh="更多推荐" data-he="המלצות נוספות"></h3>
+    <div class="docs-img-grid">
+      <div class="doc-img-card" onclick="openDoc('public/rec-ariel.jpg')">
+        <div class="doc-img-badge" data-i18n data-en="ORIGINAL" data-ar="أصلي" data-zh="原件" data-he="מקור"></div>
+        <img src="public/rec-ariel.jpg" alt="Gvanim Center Ariel Recommendation" loading="lazy">
+        <div class="doc-img-label">
+          <h4 data-i18n data-en="Gvanim Center — Ariel" data-ar="مركز غفانيم — أريئيل" data-zh="Gvanim中心 — Ariel" data-he="מרכז גוונים — אריאל"></h4>
+          <p data-i18n data-en="Keren Cohen, CEO — Passover Camps, 2025" data-ar="كيرين كوهين، المديرة — معسكرات فصح، 2025" data-zh="Keren Cohen, CEO — 逾越节营地, 2025" data-he="קרן כהן, מנכ״לית — קייטנת פסח, תשפ״ה"></p>
+        </div>
+      </div>
+      <div class="doc-img-card" onclick="openDoc('public/rec-gedera.jpg')">
+        <div class="doc-img-badge" data-i18n data-en="ORIGINAL" data-ar="أصلي" data-zh="原件" data-he="מקור"></div>
+        <img src="public/rec-gedera.jpg" alt="Gedera Education Department Recommendation" loading="lazy">
+        <div class="doc-img-label">
+          <h4 data-i18n data-en="Gedera Education Department" data-ar="قسم التعليم — غديرا" data-zh="Gedera教育局" data-he="אגף חינוך — גדרה"></h4>
+          <p data-i18n data-en="Anat Koch, Head of Education — February 2017" data-ar="عنات كوخ، رئيسة التعليم — فبراير 2017" data-zh="Anat Koch, 教育主管 — 2017年2月" data-he="ענת קוך, מנהלת אגף חינוך — פברואר 2017"></p>
+        </div>
+      </div>
+      <div class="doc-img-card" onclick="openDoc('public/rec-maalot.jpg')">
+        <div class="doc-img-badge" data-i18n data-en="ORIGINAL" data-ar="أصلي" data-zh="原件" data-he="מקור"></div>
+        <img src="public/rec-maalot.jpg" alt="Ma'alot Meshulam School Recommendation" loading="lazy">
+        <div class="doc-img-label">
+          <h4 data-i18n data-en="Ma'alot Meshulam School — Rehovot" data-ar="مدرسة معالوت مشولام — رحوفوت" data-zh="Ma'alot Meshulam学校 — Rehovot" data-he="ביה״ס מעלות משולם — רחובות"></h4>
+          <p data-i18n data-en="Meir Amouyal, Principal — June 2016" data-ar="مئير أمويال، المدير — يونيو 2016" data-zh="Meir Amouyal, 校长 — 2016年6月" data-he="מאיר אמויאל, מנהל — יוני 2016"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Document Lightbox -->
+    <div class="doc-lightbox" id="docLightbox" onclick="this.classList.remove('open')">
+      <button class="doc-lightbox-close">&times;</button>
+      <img id="docLightboxImg" src="" alt="Document">
+    </div>
+
+    <h3 style="color:var(--gold);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px" data-i18n data-en="QUALIFICATIONS" data-ar="المؤهلات" data-zh="学历资质" data-he="הסמכות"></h3>
+    <div class="qual-row">
+      <div class="qual-card">
+        <div class="qual-icon">🎓</div>
+        <div>
+          <h5 data-i18n data-en="B.Ed. in Education" data-ar="بكالوريوس في التربية" data-zh="教育学学士" data-he="תואר ראשון בהוראה"></h5>
+          <p data-i18n data-en="Bachelor of Education degree — certified teacher with full pedagogical training" data-ar="درجة بكالوريوس في التربية — معلم معتمد بتدريب تربوي كامل" data-zh="教育学学士学位——持证教师，受过完整教学培训" data-he="תואר ראשון בחינוך — מורה מוסמך עם הכשרה פדגוגית מלאה"></p>
+        </div>
+      </div>
+      <div class="qual-card">
+        <div class="qual-icon">📋</div>
+        <div>
+          <h5 data-i18n data-en="Teaching Certification" data-ar="شهادة التدريس" data-zh="教师资格证" data-he="סיום סטאז׳ בהוראה"></h5>
+          <p data-i18n data-en="Completed teaching internship &amp; certified by Israel's Ministry of Education" data-ar="إتمام فترة التدريب التعليمي والاعتماد من وزارة التربية الإسرائيلية" data-zh="完成教学实习并获以色列教育部认证" data-he="סיים סטאז׳ בהוראה ומוסמך על ידי משרד החינוך"></p>
+        </div>
+      </div>
+      <div class="qual-card">
+        <div class="qual-icon">🌏</div>
+        <div>
+          <h5 data-i18n data-en="International Experience" data-ar="خبرة دولية" data-zh="国际经验" data-he="ניסיון בינלאומי"></h5>
+          <p data-i18n data-en="Education leadership in Melbourne, Australia — Mizrachi Organisation &amp; community programs" data-ar="قيادة تعليمية في ملبورن، أستراليا — منظمة مزراحي وبرامج مجتمعية" data-zh="澳大利亚墨尔本教育领导经历——Mizrachi组织及社区项目" data-he="הנהגה חינוכית במלבורן, אוסטרליה — ארגון המזרחי ותוכניות קהילתיות"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKETS -->
+<section id="markets">
+  <div class="wrap">
+    <div class="text-center">
+      <div class="section-tag" data-i18n data-en="GLOBAL REACH" data-ar="الانتشار العالمي" data-zh="全球布局" data-he="פריסה בינלאומית"></div>
+      <h2 class="section-title" data-i18n data-en="Expanding Across Markets" data-ar="التوسع عبر الأسواق" data-zh="跨市场拓展" data-he="מתרחבים לשווקים חדשים"></h2>
+    </div>
+    <div class="markets-grid">
+      <div class="market-card">
+        <div class="market-flag">&#127470;&#127473;</div>
+        <h3 data-i18n data-en="Israel &mdash; Headquarters" data-ar="إسرائيل &mdash; المقر الرئيسي" data-zh="以色列 &mdash; 总部" data-he="ישראל &mdash; מטה"></h3>
+        <p data-i18n data-en="20+ years operating after-school programs, day camps and enrichment for municipalities and schools nationwide. Government-approved." data-ar="أكثر من ٢٠ عامًا في تشغيل برامج ما بعد المدرسة والمخيمات والإثراء للبلديات والمدارس. معتمد حكومياً." data-zh="20余年课后托管、日间营地和兴趣教育运营经验，服务全国各城市和学校。获政府认证。" data-he="20+ שנות הפעלת צהרונים, קייטנות והעשרה לרשויות ובתי ספר. מאושר ממשלתית."></p>
+        <div class="market-stat" data-i18n data-en="50+ Schools" data-ar="أكثر من ٥٠ مدرسة" data-zh="50+所学校" data-he="50+ בתי ספר"></div>
+      </div>
+      <div class="market-card">
+        <div class="market-flag">&#127462;&#127466;</div>
+        <h3 data-i18n data-en="UAE &mdash; Dubai & Abu Dhabi" data-ar="الإمارات &mdash; دبي وأبوظبي" data-zh="阿联酋 &mdash; 迪拜和阿布扎比" data-he="איחוד האמירויות &mdash; דובאי"></h3>
+        <p data-i18n data-en="180+ international schools actively seeking external enrichment partners. Our full-service model is perfectly positioned for this premium market." data-ar="أكثر من ١٨٠ مدرسة دولية تبحث بنشاط عن شركاء إثراء خارجيين. نموذجنا الشامل مثالي لهذا السوق المتميز." data-zh="180余所国际学校积极寻求外部兴趣教育合作伙伴。我们的全方位模式完美契合这一高端市场。" data-he="180+ בתי ספר בינלאומיים מחפשים שותפי העשרה חיצוניים. המודל שלנו מתאים בדיוק לשוק הפרימיום."></p>
+        <div class="market-stat" data-i18n data-en="180+ International Schools" data-ar="أكثر من ١٨٠ مدرسة دولية" data-zh="180+国际学校" data-he="180+ בתי ספר בינלאומיים"></div>
+      </div>
+      <div class="market-card">
+        <div class="market-flag">&#127464;&#127475;</div>
+        <h3 data-i18n data-en="China &mdash; Shanghai & Beyond" data-ar="الصين &mdash; شنغهاي وما بعدها" data-zh="中国 &mdash; 上海及更多" data-he="סין &mdash; שנגחאי ומעבר"></h3>
+        <p data-i18n data-en="Massive demand for structured kids' enrichment in tier-1 cities. Our Israeli methodology offers unique differentiation in this rapidly growing market." data-ar="طلب كبير على برامج إثراء منظمة للأطفال في مدن الدرجة الأولى. منهجيتنا الإسرائيلية تقدم تميزًا فريدًا." data-zh="一线城市对系统化儿童兴趣教育需求旺盛。以色列教学法在这个快速增长的市场中具有独特优势。" data-he="ביקוש עצום להעשרה מובנית לילדים בערים מובילות. המתודולוגיה הישראלית שלנו מציעה בידול ייחודי."></p>
+        <div class="market-stat" data-i18n data-en="Active Operations" data-ar="عمليات نشطة" data-zh="活跃运营" data-he="פעילות שוטפת"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY KFIR -->
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="text-center">
+      <div class="section-tag" data-i18n data-en="WHY KFIR" data-ar="لماذا كفير" data-zh="为什么选择KFIR" data-he="למה כפיר"></div>
+      <h2 class="section-title" data-i18n data-en="What Sets Us Apart" data-ar="ما يميزنا" data-zh="我们的独特优势" data-he="מה מבדיל אותנו"></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-num">20+</div>
+        <h4 data-i18n data-en="Years Proven" data-ar="سنوات مثبتة" data-zh="年实践验证" data-he="שנות הוכחה"></h4>
+        <p data-i18n data-en="Operating since 2004 in Israel's toughest tenders" data-ar="نعمل منذ ٢٠٠٤ في أصعب المناقصات" data-zh="2004年起在以色列最严格投标中运营" data-he="פועלים מ-2004 במכרזים הקשוחים ביותר"></p>
+      </div>
+      <div class="why-item">
+        <div class="why-num">&#127793;</div>
+        <h4 data-i18n data-en="Enriching & Nourishing" data-ar="إثراء وتغذية" data-zh="丰富又健康" data-he="מעשיר ומזין"></h4>
+        <p data-i18n data-en="Educational, healthy, creative and fun — a nurturing environment where every child thrives" data-ar="تعليمي وصحي وإبداعي وممتع — بيئة رعاية ينمو فيها كل طفل" data-zh="教育、健康、创意与乐趣——每个孩子都茁壮成长的成长环境" data-he="חינוכי, בריא, יצירתי ומהנה — סביבה מטפחת שבה כל ילד פורח"></p>
+      </div>
+      <div class="why-item">
+        <div class="why-num">98%</div>
+        <h4 data-i18n data-en="Renewal Rate" data-ar="معدل التجديد" data-zh="续约率" data-he="אחוז חידוש"></h4>
+        <p data-i18n data-en="Schools that try us stay — quality speaks" data-ar="المدارس التي تجربنا تبقى — الجودة تتحدث" data-zh="选择我们的学校都会续约——品质说明一切" data-he="בתי ספר שמנסים נשארים — האיכות מדברת"></p>
+      </div>
+      <div class="why-item">
+        <div class="why-num">&#127942;</div>
+        <h4 data-i18n data-en="Gov't Certified" data-ar="معتمد حكومياً" data-zh="政府认证" data-he="אישור ממשלתי"></h4>
+        <p data-i18n data-en="Israel Ministry of Education Nitzanim approved" data-ar="معتمد من برنامج نيتسانيم" data-zh="获教育部Nitzanim项目认证" data-he="מאושר תוכנית ניצנים משרד החינוך"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO STRIP -->
+<section class="photo-strip">
+  <div class="photo-strip-inner">
+    <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=500&q=80" alt="Football" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?w=500&q=80" alt="Coding" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?w=500&q=80" alt="Dance" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1472898965229-f9b06b9c9bbe?w=500&q=80" alt="Outdoor" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&q=80" alt="Classroom" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=500&q=80" alt="Gym" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=500&q=80" alt="Football" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?w=500&q=80" alt="Coding" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?w=500&q=80" alt="Dance" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1472898965229-f9b06b9c9bbe?w=500&q=80" alt="Outdoor" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&q=80" alt="Classroom" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=500&q=80" alt="Gym" loading="lazy">
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="wrap">
+    <h2 data-i18n
+        data-en="Ready to Elevate Your School's Enrichment?"
+        data-ar="مستعدون لتطوير برامج إثراء مدرستكم؟"
+        data-zh="准备好提升学校的兴趣教育了吗？"
+        data-he="מוכנים לשדרג את ההעשרה בבית הספר?"></h2>
+    <p data-i18n
+       data-en="Schedule a free consultation and demo for your school"
+       data-ar="احجزوا استشارة مجانية وعرضاً تجريبياً لمدرستكم"
+       data-zh="为您的学校预约免费咨询和体验课"
+       data-he="תאמו ייעוץ חינם והדגמה לבית הספר שלכם"></p>
+    <a href="mailto:officekfirz@gmail.com?subject=Kfir%20Education%20-%20Partnership%20Inquiry" class="btn-dark">
+      <span data-i18n data-en="Get in Touch &#8594;" data-ar="&#8592; تواصل معنا" data-zh="联系我们 &#8594;" data-he="&#8592; צרו קשר"></span>
+    </a>
+    <p style="margin-top:16px;font-size:13px;color:rgba(10,22,40,.5)">
+      <span data-i18n data-en="Or WhatsApp: +972-52-389-8467" data-ar="أو واتساب: +972-52-389-8467" data-zh="或WhatsApp: +972-52-389-8467" data-he="או וואטסאפ: 052-3898467"></span>
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><img src="public/kfir-lion.png" alt="Kfir"><em>Kfir</em> Educational Services</div>
+        <p data-i18n
+           data-en="Premium after-school, sports, STEM and creative enrichment programs for schools and kindergartens. Israeli method, global reach."
+           data-ar="برامج ما بعد المدرسة والرياضة والعلوم والإثراء الإبداعي للمدارس. المنهج الإسرائيلي، الانتشار العالمي."
+           data-zh="面向学校和幼儿园的优质课后、体育、STEM和创意兴趣课程。以色列教学法，全球覆盖。"
+           data-he="תוכניות צהרון, ספורט, STEM והעשרה יצירתית לבתי ספר וגנים. שיטה ישראלית, פריסה עולמית."></p>
+      </div>
+      <div>
+        <h4 data-i18n data-en="Programs" data-ar="البرامج" data-zh="课程" data-he="תוכניות"></h4>
+        <ul>
+          <li><a href="#programs" data-i18n data-en="Sport" data-ar="الرياضة" data-zh="体育" data-he="ספורט"></a></li>
+          <li><a href="#programs" data-i18n data-en="Tech & AI Kids" data-ar="تكنولوجيا وذكاء اصطناعي" data-zh="科技与AI" data-he="טק ו-AI"></a></li>
+          <li><a href="#programs" data-i18n data-en="Dance & Wellness" data-ar="رقص وعافية" data-zh="舞蹈健康" data-he="ריקוד ובריאות"></a></li>
+          <li><a href="#programs" data-i18n data-en="Creative English" data-ar="الإنجليزية الإبداعية" data-zh="创意英语" data-he="אנגלית יצירתית"></a></li>
+          <li><a href="#programs" data-i18n data-en="Sci-Tech" data-ar="العلوم والتكنولوجيا" data-zh="科学技术" data-he="סייטק"></a></li>
+          <li><a href="#programs" data-i18n data-en="Premium After-School" data-ar="ما بعد المدرسة المتميز" data-zh="优质课后" data-he="צהרון פרימיום"></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n data-en="Markets" data-ar="الأسواق" data-zh="市场" data-he="שווקים"></h4>
+        <ul>
+          <li><a href="#markets">Israel (HQ)</a></li>
+          <li><a href="#markets">UAE / Dubai</a></li>
+          <li><a href="#markets">China</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n data-en="Contact" data-ar="تواصل" data-zh="联系方式" data-he="צור קשר"></h4>
+        <ul>
+          <li><a href="mailto:officekfirz@gmail.com">officekfirz@gmail.com</a></li>
+          <li><a href="tel:+972523898467">+972-52-389-8467</a></li>
+          <li><a href="https://wa.me/972523898467">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Kfir Educational Services &mdash; Levi Ventures Ltd.</span>
+      <span data-i18n data-en="Israeli Education Excellence, Worldwide" data-ar="التميز التعليمي الإسرائيلي، عالمياً" data-zh="以色列教育卓越 享誉全球" data-he="מצוינות חינוכית ישראלית, בכל העולם"></span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/972523898467" target="_blank" class="wa-float" title="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.24 0-4.307-.724-5.992-1.95l-.418-.31-2.645.887.887-2.645-.31-.418A9.935 9.935 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+<script>
+const L={en:{dir:'ltr'},ar:{dir:'rtl'},zh:{dir:'ltr'},he:{dir:'rtl'}};
+function setLang(l){
+  document.documentElement.lang=l;
+  document.body.dir=L[l].dir;
+  document.body.dataset.lang=l;
+  document.querySelectorAll('.lang-btn').forEach(b=>{
+    const m={en:'EN',ar:'AR',zh:'CN',he:'HE'};
+    b.classList.toggle('active',b.textContent.trim()===m[l]);
+  });
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const t=el.dataset[l];
+    if(t){
+      if(t.includes('<'))el.innerHTML=t;
+      else el.textContent=t;
+    }
+  });
+  document.querySelectorAll('.doc-inner').forEach(d=>{d.style.direction=L[l].dir;d.style.textAlign=L[l].dir==='rtl'?'right':'left'});
+}
+setLang('en');
+// Hero Slider with background rotation
+(function(){
+  const U='https://images.unsplash.com/',S=document.querySelectorAll('.hero-slide'),D=document.querySelector('.hero-dots');
+  let c=0,t;
+  S.forEach((_,i)=>{const d=document.createElement('div');d.className='hero-dot'+(i===0?' active':'');d.onclick=()=>go(i);D.appendChild(d)});
+  function go(n){S[c].classList.remove('active');D.children[c].classList.remove('active');c=n;const bg=S[c].querySelector('.hero-slide-bg'),imgs=bg.dataset.heroImgs;if(imgs){const a=imgs.split(',');bg.style.backgroundImage="url('"+U+a[Math.floor(Math.random()*a.length)]+"?w=1600&q=80')"}S[c].classList.add('active');D.children[c].classList.add('active');clearInterval(t);t=setInterval(()=>go((c+1)%S.length),5000)}
+  t=setInterval(()=>go((c+1)%S.length),5000);
+})();
+// smooth scroll for mobile menu
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  const t=document.querySelector(a.getAttribute('href'));
+  if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+}));
+// scroll reveal
+const ro=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+// doc lightbox
+function openDoc(src){const lb=document.getElementById('docLightbox'),img=document.getElementById('docLightboxImg');img.src=src;lb.classList.add('open');}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('docLightbox').classList.remove('open')});
+</script>
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#6366f1">
+<title>💰 ניהול תשלומים | כפיר</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --indigo:#6366f1;--indigo-dark:#4338ca;--indigo-light:#e0e7ff;
+  --cream:#eef2ff;--cream-deep:#f5f3ff;
+  --green:#16a34a;--green-light:#dcfce7;
+  --red:#dc2626;--red-light:#fee2e2;
+  --gold:#d4a574;--ink:#1e1b4b;--gray:#64748b;
+  --shadow:0 4px 20px rgba(99,102,241,.08);
+  --shadow-lg:0 10px 40px rgba(99,102,241,.15);
+}
+body{font-family:'Heebo',sans-serif;background:linear-gradient(135deg,#f5f3ff 0%,#eef2ff 100%);color:var(--ink);min-height:100vh}
+.lab-notice{background:rgba(99,102,241,.1);padding:8px 16px;text-align:center;font-size:11px;color:#4338ca;font-weight:500}
+
+/* GATE */
+.gate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.gate-card{background:white;border-radius:24px;padding:40px 32px;max-width:380px;width:100%;text-align:center;box-shadow:var(--shadow-lg)}
+.gate-icon{font-size:64px;margin-bottom:16px}
+.gate-title{font-size:24px;font-weight:800;color:var(--indigo-dark);margin-bottom:6px}
+.gate-sub{font-size:14px;color:var(--gray);margin-bottom:28px;line-height:1.5}
+.gate-input{width:100%;padding:14px 16px;font-family:inherit;font-size:16px;border:2px solid var(--indigo-light);border-radius:14px;background:white;color:var(--ink);text-align:center;letter-spacing:.1em;margin-bottom:16px}
+.gate-input:focus{outline:none;border-color:var(--indigo);box-shadow:0 0 0 4px rgba(99,102,241,.1)}
+.gate-btn{width:100%;padding:14px;background:linear-gradient(135deg,var(--indigo),var(--indigo-dark));color:white;border:none;border-radius:14px;font-family:inherit;font-size:15px;font-weight:600;cursor:pointer;box-shadow:0 6px 18px rgba(99,102,241,.35)}
+.gate-btn:active{transform:scale(.97)}
+.gate-err{color:var(--red);font-size:13px;margin-top:12px;display:none}
+
+/* DASHBOARD */
+.header{background:linear-gradient(135deg,var(--indigo),var(--indigo-dark));color:white;padding:20px 20px 30px;border-radius:0 0 24px 24px}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.header-title{font-size:22px;font-weight:800;display:flex;align-items:center;gap:10px}
+.header-sub{font-size:12px;opacity:.9;margin-top:2px}
+.live-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;display:inline-block;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.logout{background:rgba(255,255,255,.18);color:white;border:none;padding:6px 12px;border-radius:10px;font-family:inherit;font-size:12px;font-weight:500;cursor:pointer}
+
+.container{max-width:1400px;margin:0 auto;padding:0 16px}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:-18px 0 18px;position:relative;z-index:2}
+@media(max-width:768px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{background:white;border-radius:14px;padding:14px;box-shadow:var(--shadow)}
+.stat-num{font-size:24px;font-weight:800;color:var(--indigo-dark);line-height:1}
+.stat-label{font-size:11px;color:var(--gray);margin-top:4px;font-weight:500}
+.stat.green .stat-num{color:var(--green)}
+.stat.red .stat-num{color:var(--red)}
+.stat.gold .stat-num{color:#92400e}
+
+/* Tools */
+.tools{background:white;border-radius:14px;padding:14px;margin-bottom:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;box-shadow:var(--shadow)}
+.search{flex:1;min-width:220px;padding:11px 16px;font-family:inherit;font-size:15px;border:2px solid var(--indigo-light);border-radius:12px;background:#fafafa}
+.search:focus{outline:none;border-color:var(--indigo);background:white}
+.chip{padding:8px 14px;border:2px solid var(--indigo-light);border-radius:12px;background:white;font-family:inherit;font-size:13px;font-weight:500;cursor:pointer;color:var(--ink)}
+.chip.active{background:var(--indigo);color:white;border-color:var(--indigo-dark)}
+.sync-btn{padding:8px 14px;background:linear-gradient(135deg,var(--indigo),var(--indigo-dark));color:white;border:none;border-radius:12px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px}
+.sync-btn.syncing{opacity:.6;cursor:wait}
+
+/* Table */
+.table-wrap{background:white;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:30px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead{background:var(--cream)}
+th{padding:11px 10px;text-align:right;font-weight:700;color:var(--indigo-dark);font-size:11px;text-transform:uppercase;letter-spacing:.5px;border-bottom:2px solid var(--indigo-light)}
+tbody tr{border-bottom:1px solid rgba(99,102,241,.08);transition:background .15s}
+tbody tr:hover{background:var(--cream-deep)}
+td{padding:11px 10px;vertical-align:middle}
+.status{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:10px;font-weight:600;font-size:12px}
+.status.paid{background:var(--green-light);color:#166534}
+.status.unpaid{background:var(--red-light);color:#991b1b}
+.dot{width:8px;height:8px;border-radius:50%}
+.dot.green{background:#22c55e}
+.dot.red{background:#ef4444}
+.amount{font-weight:700;color:var(--green);font-family:monospace}
+.amount.unpaid{color:var(--gray)}
+.phone{font-family:monospace;font-size:12px;direction:ltr;text-align:right;display:inline-block}
+.last4{font-family:monospace;background:#f1f5f9;padding:2px 6px;border-radius:4px;font-size:11px;color:var(--gray)}
+.empty{padding:60px 20px;text-align:center;color:var(--gray)}
+.loading{padding:40px;text-align:center;color:var(--gray)}
+.child-info{font-weight:600;color:var(--ink)}
+.child-sub{font-size:11px;color:var(--gray);margin-top:1px}
+.track-pill{font-size:10px;padding:2px 8px;border-radius:6px;font-weight:600}
+.track-pill.morning{background:#fef3c7;color:#92400e}
+.track-pill.full{background:#dbeafe;color:#1e40af}
+@media(max-width:768px){
+  th:nth-child(n+5),td:nth-child(n+5){display:none}
+  .container{padding:0 8px}
+}
+</style>
+</head>
+<body>
+
+<!-- GATE -->
+<div id="gate" class="gate">
+  <div class="gate-card">
+    <div class="gate-icon">💰</div>
+    <div class="gate-title">ניהול תשלומים</div>
+    <div class="gate-sub">צפייה משולבת Wufoo + iCredit<br>גישה מורשית בלבד</div>
+    <input id="gate-key" class="gate-input" type="password" placeholder="קוד גישה" autofocus onkeydown="if(event.key==='Enter')checkKey()">
+    <button class="gate-btn" onclick="checkKey()">כניסה</button>
+    <div id="gate-err" class="gate-err">קוד שגוי</div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" style="display:none">
+  <div class="lab-notice">💰 מאגר תשלומים · קריאה בלבד · שילוב Wufoo + iCredit · עדכון בזמן אמת</div>
+
+  <header class="header">
+    <div class="header-inner">
+      <div>
+        <div class="header-title">💰 ניהול תשלומים <span class="live-dot" title="חי"></span></div>
+        <div class="header-sub" id="sync-status">סנכרון אחרון: טוען...</div>
+      </div>
+      <button class="logout" onclick="logout()">יציאה</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat"><div class="stat-num" id="s-total">-</div><div class="stat-label">סה"כ הרשמות</div></div>
+      <div class="stat green"><div class="stat-num" id="s-paid">-</div><div class="stat-label">שולמו</div></div>
+      <div class="stat red"><div class="stat-num" id="s-unpaid">-</div><div class="stat-label">לא שולמו</div></div>
+      <div class="stat gold"><div class="stat-num" id="s-revenue">-</div><div class="stat-label">הכנסה (₪)</div></div>
+      <div class="stat"><div class="stat-num" id="s-today">-</div><div class="stat-label">היום</div></div>
+    </div>
+
+    <!-- Tools -->
+    <div class="tools">
+      <input id="search" class="search" placeholder="🔍 חיפוש: שם / טלפון / 4 ספרות / יישוב..." oninput="render()">
+      <button class="chip active" data-filter="all" onclick="setFilter('all')">הכל</button>
+      <button class="chip" data-filter="paid" onclick="setFilter('paid')">✅ שולם</button>
+      <button class="chip" data-filter="unpaid" onclick="setFilter('unpaid')">❌ לא שולם</button>
+      <button class="chip" data-filter="today" onclick="setFilter('today')">📅 היום</button>
+      <button class="chip" data-filter="school" onclick="setFilter('school')">🏫 בי"ס</button>
+      <button class="chip" data-filter="gan" onclick="setFilter('gan')">🌳 גנים</button>
+      <button id="sync-btn" class="sync-btn" onclick="manualSync()">🔄 סנכרון עכשיו</button>
+    </div>
+
+    <!-- Table -->
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>סטטוס</th>
+            <th>ילד / משפחה</th>
+            <th>טלפון</th>
+            <th>מסגרת</th>
+            <th>מסלול</th>
+            <th>הסעה</th>
+            <th>סכום</th>
+            <th>תאריך תשלום</th>
+            <th>4 ספרות</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+          <tr><td colspan="9" class="loading">⏳ טוען נתונים מ-Firestore...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+import { getFirestore, collection, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCXs7a644_tl_Mu-A-Jnq5mXBXVp-OILKY",
+  authDomain: "kfir-site-f3ab5.firebaseapp.com",
+  projectId: "kfir-site-f3ab5",
+  storageBucket: "kfir-site-f3ab5.firebasestorage.app",
+  messagingSenderId: "116106158672",
+  appId: "1:116106158672:web:3db78243185fbdc81ce755"
+};
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+window._fb = { db, collection, onSnapshot, query, orderBy };
+</script>
+
+<script>
+const ACCESS_KEY = 'kfir2026';
+
+function checkKey() {
+  const k = document.getElementById('gate-key').value;
+  if (k === ACCESS_KEY) {
+    localStorage.setItem('payments_key', k);
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+    initLive();
+  } else {
+    document.getElementById('gate-err').style.display = 'block';
+  }
+}
+function logout() { localStorage.removeItem('payments_key'); location.reload(); }
+window.checkKey = checkKey;
+window.logout = logout;
+
+if (localStorage.getItem('payments_key') === ACCESS_KEY) {
+  document.getElementById('gate').style.display = 'none';
+  document.getElementById('dashboard').style.display = 'block';
+}
+
+let registrations = [];
+let payments = [];
+let currentFilter = 'all';
+
+async function initLive() {
+  // ממתין לטעינת Firebase
+  let attempts = 0;
+  while (!window._fb && attempts < 30) {
+    await new Promise(r => setTimeout(r, 100));
+    attempts++;
+  }
+  if (!window._fb) return showError('Firebase לא נטען');
+
+  const { db, collection, onSnapshot } = window._fb;
+
+  // 🔄 מאזין ל-registrations בזמן אמת
+  onSnapshot(collection(db, 'registrations'), (snap) => {
+    registrations = [];
+    snap.forEach(doc => registrations.push({ id: doc.id, ...doc.data() }));
+    updateStats();
+    render();
+    updateSyncStatus();
+  });
+
+  // 🔄 מאזין ל-payments בזמן אמת
+  onSnapshot(collection(db, 'payments'), (snap) => {
+    payments = [];
+    snap.forEach(doc => payments.push({ id: doc.id, ...doc.data() }));
+    updateStats();
+    render();
+  });
+
+  // 🔁 סנכרון אוטומטי כל 30 שניות
+  setInterval(autoSync, 30000);
+}
+
+function showError(msg) {
+  document.getElementById('tbody').innerHTML = `<tr><td colspan="9" class="empty">⚠️ שגיאה: ${msg}</td></tr>`;
+}
+
+// 🔗 הצלבה - מוצא תשלום עבור הרשמה
+function findPayment(reg) {
+  return payments.find(p => p.wufooEntryId == reg.entryId && p.wufooFormHash === reg.formHash);
+}
+
+// 💰 חישוב סכום צפוי לפי המסלול
+function expectedAmount(reg) {
+  const isSchool = reg.formHash === 'q1s6ptxg0de2ctr';
+  const track = reg.track || '';
+  if (track.includes('צהרון') || track.includes('בוקר+')) {
+    return isSchool ? 1214 : 1105;
+  }
+  return 300;
+}
+
+function updateStats() {
+  const total = registrations.length;
+  const paidIds = new Set(payments.filter(p => p.wufooEntryId).map(p => `${p.wufooFormHash}_${p.wufooEntryId}`));
+  const paid = registrations.filter(r => paidIds.has(`${r.formHash}_${r.entryId}`)).length;
+  const unpaid = total - paid;
+  const revenue = payments.reduce((s, p) => s + (p.amount || 0), 0);
+  const today = new Date().toISOString().split('T')[0];
+  const todayPayments = payments.filter(p => p.receivedAt?.startsWith(today)).length;
+
+  document.getElementById('s-total').textContent = total;
+  document.getElementById('s-paid').textContent = paid;
+  document.getElementById('s-unpaid').textContent = unpaid;
+  document.getElementById('s-revenue').textContent = revenue ? revenue.toLocaleString('he-IL') : '0';
+  document.getElementById('s-today').textContent = todayPayments;
+}
+
+function setFilter(f) {
+  currentFilter = f;
+  document.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c.dataset.filter === f));
+  render();
+}
+window.setFilter = setFilter;
+
+function render() {
+  const search = document.getElementById('search').value.toLowerCase().trim();
+  let list = [...registrations];
+
+  // סינון לפי טיפ
+  if (currentFilter === 'paid') {
+    list = list.filter(r => findPayment(r));
+  } else if (currentFilter === 'unpaid') {
+    list = list.filter(r => !findPayment(r));
+  } else if (currentFilter === 'today') {
+    const today = new Date().toISOString().split('T')[0];
+    list = list.filter(r => r.createdDate?.startsWith(today));
+  } else if (currentFilter === 'school') {
+    list = list.filter(r => r.formHash === 'q1s6ptxg0de2ctr');
+  } else if (currentFilter === 'gan') {
+    list = list.filter(r => r.formHash === 'q1w1pzu302m7omc');
+  }
+
+  // חיפוש חכם
+  if (search) {
+    list = list.filter(r => {
+      const p = findPayment(r);
+      const haystack = [
+        r.parentFirstName, r.parentLastName,
+        r.childFirstName, r.childLastName,
+        r.parentPhone, r.parentEmail,
+        r.settlement, r.address,
+        r.kindergarten, r.track,
+        r.entryId,
+        p?.cardLast4, p?.transactionId
+      ].filter(Boolean).join(' ').toLowerCase();
+      return haystack.includes(search);
+    });
+  }
+
+  // מיון: לא שולמו קודם, אחר כך לפי תאריך
+  list.sort((a, b) => {
+    const aP = findPayment(a) ? 1 : 0;
+    const bP = findPayment(b) ? 1 : 0;
+    if (aP !== bP) return aP - bP;  // לא שולמו קודם
+    return (b.createdDate || '').localeCompare(a.createdDate || '');
+  });
+
+  const tbody = document.getElementById('tbody');
+  if (list.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="9" class="empty">📭 אין תוצאות תואמות</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = list.map(r => {
+    const p = findPayment(r);
+    const isPaid = !!p;
+    const childName = `${r.childFirstName || ''} ${r.childLastName || ''}`.trim();
+    const parentName = `${r.parentFirstName || ''} ${r.parentLastName || ''}`.trim();
+    const track = r.track || '';
+    const trackPill = track.includes('צהרון') || track.includes('בוקר+')
+      ? `<span class="track-pill full">🌅🌇 בוקר+צהרון</span>`
+      : track
+      ? `<span class="track-pill morning">🌅 בוקר</span>`
+      : '';
+    const amount = p?.amount || expectedAmount(r);
+    const paymentDate = p?.receivedAt ? new Date(p.receivedAt).toLocaleDateString('he-IL') + ' ' + new Date(p.receivedAt).toLocaleTimeString('he-IL', {hour:'2-digit',minute:'2-digit'}) : '-';
+
+    return `<tr>
+      <td>
+        <span class="status ${isPaid ? 'paid' : 'unpaid'}">
+          <span class="dot ${isPaid ? 'green' : 'red'}"></span>
+          ${isPaid ? 'שולם' : 'לא שולם'}
+        </span>
+      </td>
+      <td>
+        <div class="child-info">${childName || '-'}</div>
+        <div class="child-sub">${parentName} · ${r.settlement || ''}</div>
+      </td>
+      <td><span class="phone">${r.parentPhone || '-'}</span></td>
+      <td>${r.kindergarten || '-'}</td>
+      <td>${trackPill}</td>
+      <td>${r.transport ? `<small>${r.transport.substring(0,30)}</small>` : '-'}</td>
+      <td><span class="amount ${isPaid ? '' : 'unpaid'}">${amount.toLocaleString('he-IL')} ₪</span></td>
+      <td>${paymentDate}</td>
+      <td>${p?.cardLast4 ? `<span class="last4">****${p.cardLast4}</span>` : '-'}</td>
+    </tr>`;
+  }).join('');
+}
+window.render = render;
+
+function updateSyncStatus() {
+  const now = new Date().toLocaleTimeString('he-IL');
+  document.getElementById('sync-status').textContent = `סנכרון אחרון: ${now} · ${registrations.length} הרשמות · ${payments.length} תשלומים`;
+}
+
+async function manualSync() {
+  const btn = document.getElementById('sync-btn');
+  btn.classList.add('syncing');
+  btn.textContent = '⏳ מסנכרן...';
+  try {
+    const r = await fetch('https://us-central1-kfir-site-f3ab5.cloudfunctions.net/syncWufoo');
+    const data = await r.json();
+    btn.textContent = `✅ סונכרן ${data.synced || 0}`;
+    setTimeout(() => {
+      btn.textContent = '🔄 סנכרון עכשיו';
+      btn.classList.remove('syncing');
+    }, 2000);
+  } catch (err) {
+    btn.textContent = '⚠️ שגיאה';
+    setTimeout(() => {
+      btn.textContent = '🔄 סנכרון עכשיו';
+      btn.classList.remove('syncing');
+    }, 2000);
+  }
+}
+window.manualSync = manualSync;
+
+async function autoSync() {
+  try {
+    await fetch('https://us-central1-kfir-site-f3ab5.cloudfunctions.net/syncWufoo');
+  } catch {}
+}
+
+// טעינה אוטומטית אם מחובר
+if (localStorage.getItem('payments_key') === ACCESS_KEY) {
+  setTimeout(initLive, 200);
+}
+</script>
+</body>
+</html>
